@@ -2,3 +2,8 @@
 build/
 *.mode1v3
 *.pbxuser
+
+# generated files
+sgf/sgfparse.c
+sgf/sgfparse.h
+sgf/sgfparse.out

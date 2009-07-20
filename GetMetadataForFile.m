@@ -1,15 +1,9 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreServices/CoreServices.h> 
+#include <Cocoa/Cocoa.h>
 
-/* -----------------------------------------------------------------------------
-   Step 1
-   Set the UTI types the importer supports
-  
-   Modify the CFBundleDocumentTypes entry in Info.plist to contain
-   an array of Uniform Type Identifiers (UTI) for the LSItemContentTypes 
-   that your importer can handle
-  
-   ----------------------------------------------------------------------------- */
+#include "SGFImporter.h"
+
 
 /* -----------------------------------------------------------------------------
    Step 2 
@@ -33,8 +27,6 @@
   
    ----------------------------------------------------------------------------- */
 
-
-
 /* -----------------------------------------------------------------------------
     Get metadata attributes from file
    
@@ -47,10 +39,13 @@ Boolean GetMetadataForFile(void* thisInterface,
 			   CFStringRef contentTypeUTI,
 			   CFStringRef pathToFile)
 {
-    /* Pull any available metadata from the file at the specified path */
-    /* Return the attribute keys and attribute values in the dict */
-    /* Return TRUE if successful, FALSE if there was no data provided */
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    #warning To complete your importer please implement the function GetMetadataForFile in GetMetadataForFile.c
-    return TRUE;
+    SGFImporter *imp = [[SGFImporter alloc] initWithAttributeDictionary:(NSMutableDictionary*)attributes];
+    BOOL res = [imp importFileAtPath:(NSString*)pathToFile];
+    [imp release];
+    
+    [pool release];
+    
+    return res;
 }
