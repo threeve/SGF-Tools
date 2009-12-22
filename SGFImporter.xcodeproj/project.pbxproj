@@ -331,11 +331,13 @@
 		70138C850896BE9A00968C2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				PRODUCT_NAME = SGF;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = mdimporter;
 			};
 			name = Debug;
@@ -343,10 +345,12 @@
 		70138C860896BE9A00968C2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				PRODUCT_NAME = SGF;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = mdimporter;
 			};
 			name = Release;
