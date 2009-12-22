@@ -274,7 +274,7 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 70138C880896BE9A00968C2F /* Build configuration list for PBXProject "SGFImporter" */;
+			buildConfigurationList = 70138C880896BE9A00968C2F /* Build configuration list for PBXProject "SGFTools" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* SGFImporter */;
@@ -459,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70138C880896BE9A00968C2F /* Build configuration list for PBXProject "SGFImporter" */ = {
+		70138C880896BE9A00968C2F /* Build configuration list for PBXProject "SGFTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70138C890896BE9A00968C2F /* Debug */,
