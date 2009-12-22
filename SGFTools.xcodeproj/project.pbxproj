@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
+		520F868310E1766000E6C4BB /* ABOUT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868010E1766000E6C4BB /* ABOUT.txt */; };
+		520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
+		520F868510E1766000E6C4BB /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
 		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
-		96400BAF10E06ECE00052C98 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 96400BAE10E06ECE00052C98 /* AUTHORS */; };
 		9665B8C91012B6E2007F87B4 /* lemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 9665B8C71012B6E2007F87B4 /* lemon.c */; };
 		9665B8D91012B95D007F87B4 /* sgfparse.y in Sources */ = {isa = PBXBuildFile; fileRef = 9665B8D71012B959007F87B4 /* sgfparse.y */; };
 		9665B8E01012BA9A007F87B4 /* lempar.c in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9665B8C81012B6E2007F87B4 /* lempar.c */; };
@@ -77,14 +79,15 @@
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
+		520F868010E1766000E6C4BB /* ABOUT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ABOUT.txt; sourceTree = "<group>"; };
+		520F868110E1766000E6C4BB /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS.txt; sourceTree = "<group>"; };
+		520F868210E1766000E6C4BB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
 		52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "To Do List.rtf"; sourceTree = "<group>"; };
 		52D8BC6910DECD040026CAF5 /* johnVsGnu.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = johnVsGnu.sgf; path = testfiles/johnVsGnu.sgf; sourceTree = "<group>"; };
 		52D8BC6A10DECD040026CAF5 /* test.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.sgf; path = testfiles/test.sgf; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* SGF.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGF.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		96400BAD10E06E4E00052C98 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		96400BAE10E06ECE00052C98 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		9665B8BF1012B6BB007F87B4 /* lemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		9665B8C71012B6E2007F87B4 /* lemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lemon.c; path = tools/lemon.c; sourceTree = "<group>"; };
 		9665B8C81012B6E2007F87B4 /* lempar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lempar.c; path = tools/lempar.c; sourceTree = "<group>"; };
@@ -185,10 +188,11 @@
 		52D8BBD510DDE5460026CAF5 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				520F868010E1766000E6C4BB /* ABOUT.txt */,
+				520F868110E1766000E6C4BB /* AUTHORS.txt */,
+				520F868210E1766000E6C4BB /* LICENSE.txt */,
 				52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */,
 				52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */,
-				96400BAD10E06E4E00052C98 /* LICENSE */,
-				96400BAE10E06ECE00052C98 /* AUTHORS */,
 				96BB9CC810E0842600F46049 /* Readme.md */,
 			);
 			name = Documentation;
@@ -313,7 +317,9 @@
 				8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */,
 				52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */,
 				52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */,
-				96400BAF10E06ECE00052C98 /* AUTHORS in Resources */,
+				520F868310E1766000E6C4BB /* ABOUT.txt in Resources */,
+				520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */,
+				520F868510E1766000E6C4BB /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
