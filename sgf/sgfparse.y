@@ -52,7 +52,9 @@
 %token_type { sgf_token * }
 %token_prefix TK_
 %extra_argument { sgf_parser *p }
-
+%token_destructor {
+    (void)p; // to prevent unused var warning
+}
 %parse_accept {
 }
 

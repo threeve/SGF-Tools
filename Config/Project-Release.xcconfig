@@ -1,0 +1,8 @@
+//
+//  Project-Release.xcconfig
+//
+//  Created by Jason Foreman on 11/1/09.
+//  Copyright 2009 Jason Foreman. All rights reserved.
+//
+
+#include "Project-Base.xcconfig"

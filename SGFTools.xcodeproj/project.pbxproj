@@ -45,7 +45,7 @@
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c",
 			);
-			script = "/usr/local/bin/ragel -C -G2 ${INPUT_FILE_PATH} -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c";
+			script = "/usr/local/bin/ragel -C -G2 \"${INPUT_FILE_PATH}\" -o \"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c\"";
 		};
 /* End PBXBuildRule section */
 
@@ -94,6 +94,10 @@
 		9665B9111012BEE3007F87B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFImporter.h; sourceTree = "<group>"; };
 		9665BA131012F4D2007F87B4 /* SGFImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFImporter.m; sourceTree = "<group>"; };
+		96BB9C2F10E07EC700F46049 /* Project-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Base.xcconfig"; path = "Config/Project-Base.xcconfig"; sourceTree = "<group>"; };
+		96BB9C3010E07EC700F46049 /* Project-Coverage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Coverage.xcconfig"; path = "Config/Project-Coverage.xcconfig"; sourceTree = "<group>"; };
+		96BB9C3110E07EC700F46049 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Debug.xcconfig"; path = "Config/Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		96BB9C3210E07EC700F46049 /* Project-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Release.xcconfig"; path = "Config/Project-Release.xcconfig"; sourceTree = "<group>"; };
 		C86B05260671AA6E00DD9006 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		C88FB7D7067446EC006EBB30 /* schema.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = schema.xml; sourceTree = "<group>"; };
 		C88FB7DB0674470F006EBB30 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/schema.strings; sourceTree = "<group>"; };
@@ -123,12 +127,13 @@
 		089C166AFE841209C02AAC07 /* SGFImporter */ = {
 			isa = PBXGroup;
 			children = (
-				52D8BC6810DECCE30026CAF5 /* Test Files */,
+				96BB9C2D10E07EBA00F46049 /* Config */,
 				52D8BBD510DDE5460026CAF5 /* Documentation */,
-				9665B8D61012B917007F87B4 /* SGF */,
-				08FB77AFFE84173DC02AAC07 /* Source */,
+				9665B8D61012B917007F87B4 /* SGF Parser */,
+				08FB77AFFE84173DC02AAC07 /* Spotlight Importer */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				9665B8C51012B6C9007F87B4 /* Tools */,
+				52D8BC6810DECCE30026CAF5 /* Test Files */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
@@ -156,7 +161,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		08FB77AFFE84173DC02AAC07 /* Source */ = {
+		08FB77AFFE84173DC02AAC07 /* Spotlight Importer */ = {
 			isa = PBXGroup;
 			children = (
 				2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */,
@@ -164,7 +169,7 @@
 				9665BA121012F4D2007F87B4 /* SGFImporter.h */,
 				9665BA131012F4D2007F87B4 /* SGFImporter.m */,
 			);
-			name = Source;
+			name = "Spotlight Importer";
 			sourceTree = "<group>";
 		};
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
@@ -205,14 +210,25 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
-		9665B8D61012B917007F87B4 /* SGF */ = {
+		9665B8D61012B917007F87B4 /* SGF Parser */ = {
 			isa = PBXGroup;
 			children = (
 				9665B8F61012BC42007F87B4 /* sgf_parser.h */,
 				9665B8D71012B959007F87B4 /* sgfparse.y */,
 				9665B8D81012B959007F87B4 /* sgfscan.rl */,
 			);
-			name = SGF;
+			name = "SGF Parser";
+			sourceTree = "<group>";
+		};
+		96BB9C2D10E07EBA00F46049 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				96BB9C2F10E07EC700F46049 /* Project-Base.xcconfig */,
+				96BB9C3010E07EC700F46049 /* Project-Coverage.xcconfig */,
+				96BB9C3110E07EC700F46049 /* Project-Debug.xcconfig */,
+				96BB9C3210E07EC700F46049 /* Project-Release.xcconfig */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +245,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8D57630D048677EA00EA77CD /* SGFImporter */ = {
+		8D57630D048677EA00EA77CD /* Spotlight Importer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70138C840896BE9A00968C2F /* Build configuration list for PBXNativeTarget "SGFImporter" */;
+			buildConfigurationList = 70138C840896BE9A00968C2F /* Build configuration list for PBXNativeTarget "Spotlight Importer" */;
 			buildPhases = (
 				8D57630E048677EA00EA77CD /* Headers */,
 				8D57630F048677EA00EA77CD /* Resources */,
@@ -246,7 +262,7 @@
 			dependencies = (
 				9665B8CF1012B6EC007F87B4 /* PBXTargetDependency */,
 			);
-			name = SGFImporter;
+			name = "Spotlight Importer";
 			productInstallPath = /Library/Spotlight;
 			productName = SGFImporter;
 			productReference = 8D576316048677EA00EA77CD /* SGF.mdimporter */;
@@ -281,7 +297,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D57630D048677EA00EA77CD /* SGFImporter */,
+				8D57630D048677EA00EA77CD /* Spotlight Importer */,
 				9665B8BE1012B6BB007F87B4 /* lemon */,
 			);
 		};
@@ -365,6 +381,7 @@
 		70138C850896BE9A00968C2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -381,6 +398,7 @@
 		70138C860896BE9A00968C2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
@@ -395,25 +413,17 @@
 		};
 		70138C890896BE9A00968C2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96BB9C3110E07EC700F46049 /* Project-Debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
 		70138C8A0896BE9A00968C2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96BB9C3210E07EC700F46049 /* Project-Release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};
@@ -426,9 +436,17 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = (
+					"-Wdiv-by-zero",
+					"-Wbad-function-cast",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = lemon;
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -440,9 +458,17 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = (
+					"-Wdiv-by-zero",
+					"-Wbad-function-cast",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = lemon;
+				WARNING_CFLAGS = "";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -450,7 +476,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70138C840896BE9A00968C2F /* Build configuration list for PBXNativeTarget "SGFImporter" */ = {
+		70138C840896BE9A00968C2F /* Build configuration list for PBXNativeTarget "Spotlight Importer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70138C850896BE9A00968C2F /* Debug */,

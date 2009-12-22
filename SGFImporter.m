@@ -130,7 +130,8 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     if (!data)
         return NO;
 
-    sgf_parser parser = { 0 };
+    sgf_parser parser;
+    bzero(&parser, sizeof(parser));
     parser.property = do_property;              /*sgf_property_handler property;*/
     parser.property_push_value = do_push_value; /*sgf_property_push_value property_push_value;*/
     parser.property_data = do_data;             /*sgf_property_data_handler property_data;*/

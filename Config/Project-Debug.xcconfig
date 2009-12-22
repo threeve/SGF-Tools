@@ -1,0 +1,11 @@
+//
+//  Project-Debug.xcconfig
+//
+//  Created by Jason Foreman on 11/1/09.
+//  Copyright 2009 Jason Foreman. All rights reserved.
+//
+
+#include "Project-Base.xcconfig"
+
+// This warning is only supported in optimized builds
+GCC_WARN_UNINITIALIZED_AUTOS = NO
