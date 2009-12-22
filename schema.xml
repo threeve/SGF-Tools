@@ -22,6 +22,9 @@
         <attribute name="com_breedingpinetrees_sgf_ruleset" multivalued="false" type="CFString"/>
         <attribute name="com_breedingpinetrees_sgf_oldhandicap" multivalued="false" type="CFString"/>
         <attribute name="com_breedingpinetrees_sgf_dateplayed" multivalued="false" type="CFDate"/>
+        <attribute name="com_breedingpinetrees_sgf_yearplayed" multivalued="false" type="CFNumber"/>
+        <attribute name="com_breedingpinetrees_sgf_winner" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_loser" multivalued="false" type="CFString"/>
     </attributes>
     <types>
         <type name="com.breedingpinetrees.sgf">
@@ -59,9 +62,13 @@
 			com_breedingpinetrees_sgf_ruleset
 			com_breedingpinetrees_sgf_oldhandicap
 			com_breedingpinetrees_sgf_dateplayed
+			com_breedingpinetrees_sgf_yearplayed
+			com_breedingpinetrees_sgf_winner
+			com_breedingpinetrees_sgf_loser
             </allattrs>
 
             <displayattrs>
+			com_breedingpinetrees_sgf_event
 			kMDItemTitle
 			com_breedingpinetrees_sgf_dateplayed
 			com_breedingpinetrees_sgf_white

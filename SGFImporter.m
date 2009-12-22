@@ -9,6 +9,29 @@
 //	Added many additional sgf properties.
 //
 
+/*
+ Version History:
+ 1.2:	First release that implemented "all" properties/attrs.
+ 
+ 1.2.1: Within an hour of releasing 1.2 I found a bug in the DT code that
+		caused the importer to crash on incomplete dates, this ver
+		fixes that.
+ 
+ 1.2.2:	Added Year Played attr because for many old games only this part of
+		the date is known. In contrast to the Date Played attr this one is
+		a plain CFNumber.
+ 
+		Further improved the handling of DT prop to Date Played attr conv.
+ 
+		Replaced call to deprecated stringWithCString:length: in do_property()
+		(I hate seeing warnings for a good build)
+ 
+		Added Winner & Loser attrs derrived from the RE PW PB props as
+		suggested by Anders.
+ 
+		Fixed memory leaks in do_property() & appendString:forKey:
+ */
+
 #import "SGFImporter.h"
 
 #include "sgf_parser.h"
@@ -39,7 +62,12 @@ static int MAX_GAMENAME = (sizeof(gameName)/sizeof(NSString *));
 void *do_property(sgf_parser *p, const char *name, size_t length)
 {
     SGFImporter *imp = p->context;
-    [imp doProperty:[NSString stringWithCString:name length:length]];
+	
+	// we really need to think carefully about how to properly handle 
+	// different encodings
+	NSString *property = [[NSString alloc] initWithCString:name encoding:NSUTF8StringEncoding];
+    [imp doProperty:[property substringToIndex:length]];
+	[property release];
     return NULL;
 }
 
@@ -131,7 +159,9 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	
 	if (!text)
 	{
-		[self.attributes setObject:[[NSMutableString alloc] initWithString:value] forKey:key];
+		NSMutableString *newval = [[NSMutableString alloc] initWithString:value];
+		[self.attributes setObject:newval forKey:key];
+		[newval release];
 	}
 	else
 	{
@@ -153,7 +183,40 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	}
 }
 
-- (void)doPushValue;
+- (void) determineWinnerAndLoser
+{
+	// If the Winner attr hasn't already been set, then
+	// if the Result, White Player, and Black Player 
+	// fields have all been set then determine &
+	// store the Winner & Loser attrs
+	
+	if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_winner"])
+	{
+		NSMutableString *result = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_result"];
+		NSMutableString *white = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_white"];
+		NSMutableString *black = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_black"];
+		
+		if (result && white && black && ([result length] >= 2))
+		{
+			NSString *winner, *loser;
+			if (NSOrderedSame == [result compare:@"W+" options:NSCaseInsensitiveSearch range:NSMakeRange(0,2)])
+			{
+				winner = white;
+				loser = black;
+			}
+			else 
+			{
+				winner = black;
+				loser = white;
+			}
+			
+			[self.attributes setObject:[NSString stringWithString:winner] forKey:@"com_breedingpinetrees_sgf_winner"];
+			[self.attributes setObject:[NSString stringWithString:loser] forKey:@"com_breedingpinetrees_sgf_loser"];
+		}
+	}
+}
+
+- (void) doPushValue;
 {
     NSString *value = [[[NSString alloc] initWithData:self.data encoding:self.textEncoding] autorelease];
 	
@@ -191,6 +254,7 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     {
         [self appendString:value forKey:(NSString*)kMDItemHeadline];
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_result"];
+		[self determineWinnerAndLoser];
     }
 	else if ([@"EV" isEqualToString:self.currentProperty])
     {
@@ -205,11 +269,13 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	{ 
 		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_white"];
+		[self determineWinnerAndLoser];
 	}
     else if ([@"PB" isEqualToString:self.currentProperty])
 	{ 
 		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_black"];
+		[self determineWinnerAndLoser];
 	}
     else if ([@"WR" isEqualToString:self.currentProperty])
 	{ 
@@ -252,12 +318,19 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_dateplayed"])
 		{
 			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]];
+			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 			value = [[value componentsSeparatedByCharactersInSet:
-					  [NSCharacterSet characterSetWithCharactersInString:@" ,"]] objectAtIndex:0];
+					  [NSCharacterSet characterSetWithCharactersInString:@" ,~"]] objectAtIndex:0];
 			if ([value length] == 10)  // "1980-01-01"
 			{   // NSDate dateWithString is very picky! must have exact format or bombs.  :(
 				value = [NSString stringWithFormat:@"%@ 12:00:00 +0000", value];
 				[self.attributes setObject:[NSDate dateWithString:value] forKey:@"com_breedingpinetrees_sgf_dateplayed"];
+			}
+			
+			if ([value length] >= 4)  // "1980"
+			{
+				[self setNumberOnce:[value substringToIndex:4] forKey:@"com_breedingpinetrees_sgf_yearplayed"];
 			}
 		}
     }
