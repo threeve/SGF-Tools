@@ -4,15 +4,72 @@
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="http://www.apple.com/metadata file:///System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Resources/MetadataSchema.xsd">
     <attributes>
-        <!-- attribute name="com_Foo_YourAttrName" multivalued="true" type="CFString"/-->
+        <attribute name="com_breedingpinetrees_sgf_result" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_event" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_white" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_black" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_handicap" multivalued="false" type="CFNumber"/>
+        <attribute name="com_breedingpinetrees_sgf_komi" multivalued="false" type="CFNumber"/>
+        <attribute name="com_breedingpinetrees_sgf_size" multivalued="false" type="CFNumber"/>
+        <attribute name="com_breedingpinetrees_sgf_gametype" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_blackrank" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_whiterank" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_blackteam" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_whiteteam" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_opening" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_overtime" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_round" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_ruleset" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_oldhandicap" multivalued="false" type="CFString"/>
+        <attribute name="com_breedingpinetrees_sgf_dateplayed" multivalued="false" type="CFDate"/>
     </attributes>
     <types>
         <type name="com.breedingpinetrees.sgf">
             <allattrs> 
+			kMDItemAuthors
+			kMDItemVersion
+			kMDItemCreator
+			kMDItemCopyright
+			kMDItemTitle
+			kMDItemDescription
+			kMDItemHeadline
+			kMDItemCoverage
+			kMDItemNamedLocation
+			kMDItemParticipants
+			kMDItemContributors
+			kMDItemPublishers
+			kMDItemTextContent
+			kMDItemDurationSeconds
+			
+			com_breedingpinetrees_sgf_result
+			com_breedingpinetrees_sgf_event
+			com_breedingpinetrees_sgf_white
+			com_breedingpinetrees_sgf_black
+			com_breedingpinetrees_sgf_handicap
+			com_breedingpinetrees_sgf_komi
+			com_breedingpinetrees_sgf_size
+			com_breedingpinetrees_sgf_gametype
+			com_breedingpinetrees_sgf_blackrank
+			com_breedingpinetrees_sgf_whiterank
+			com_breedingpinetrees_sgf_blackteam
+			com_breedingpinetrees_sgf_whiteteam
+			com_breedingpinetrees_sgf_opening
+			com_breedingpinetrees_sgf_overtime
+			com_breedingpinetrees_sgf_round
+			com_breedingpinetrees_sgf_ruleset
+			com_breedingpinetrees_sgf_oldhandicap
+			com_breedingpinetrees_sgf_dateplayed
             </allattrs>
+
             <displayattrs>
+			kMDItemTitle
+			com_breedingpinetrees_sgf_dateplayed
+			com_breedingpinetrees_sgf_white
+			com_breedingpinetrees_sgf_whiterank
+			com_breedingpinetrees_sgf_black
+			com_breedingpinetrees_sgf_blackrank
+			com_breedingpinetrees_sgf_result
             </displayattrs>
-            
         </type>
     </types>
 </schema>

@@ -5,10 +5,28 @@
 //  Created by Jason Foreman on 7/19/09.
 //  Copyright 2009 Breeding Pine Trees. All rights reserved.
 //
+//  Modified by John Mifsud, FrissonTouch, Dec. 2009.
+//	Added many additional sgf properties.
+//
 
 #import "SGFImporter.h"
 
 #include "sgf_parser.h"
+
+
+NSString *gameName[] = {
+	@"Go", @"Othello", @"Chess", @"omoku+Renju", @"Nine Men's Morris",
+	@"Backgammon", @"Chinese Chess", @"Shogi", @"Lines of Action", @"Ataxx",
+	@"Hex", @"Jungle", @"Neutron", @"Philosopher's Football", @"Quadrature", 
+	@"Trax", @"Tantrix", @"Amazons", @"Octi", @"Gess", 
+	@"Twixt", @"Zertz", @"Plateau", @"Yinsh", @"Punct", 
+	@"Gobblet", @"Hive", @"Exxit", @"Hnefatal", @"Kuba", 
+	@"Tripples", @"Chase", @"Tumbling Down", @"Sahara", @"Byte", 
+	@"Focus", @"Dvonn", @"Tamsk", @"Gipf", @"Kropki"
+};
+
+static int MAX_GAMENAME = (sizeof(gameName)/sizeof(NSString *));
+
 
 
 @interface SGFImporter ()
@@ -44,6 +62,7 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 @synthesize textEncoding = _textEncoding;
 @synthesize attributes = _attributes;
 @synthesize currentProperty = _currentProperty;
+
 
 
 - (id)initWithAttributeDictionary:(NSMutableDictionary*)attributes;
@@ -90,12 +109,57 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     self.currentProperty = propertyName;
 }
 
+- (void) setNumberOnce:(NSString *)value forKey:(NSString *)key
+{	// only stores the first value for key
+	if (![self.attributes objectForKey:key])
+	{
+		[self.attributes setObject:[NSNumber numberWithDouble:[value doubleValue]] forKey:key];
+	}
+}
+
+- (void) setStringOnce:(NSString *)value forKey:(NSString *)key
+{	// only stores the first value for key
+	if (![self.attributes objectForKey:key])
+	{
+		[self.attributes setObject:value forKey:key];
+	}
+}
+
+- (void) appendString:(NSString *)value forKey:(NSString *)key
+{
+	NSMutableString *text = [self.attributes objectForKey:key];
+	
+	if (!text)
+	{
+		[self.attributes setObject:[[NSMutableString alloc] initWithString:value] forKey:key];
+	}
+	else
+	{
+		[text appendFormat:@" %@", value];
+	}
+}
+
+- (void) addString:(NSString *)value toArrayforKey:(NSString *)key
+{
+	NSMutableArray *array = [self.attributes objectForKey:key];
+	
+	if (!array)
+	{
+		[self.attributes setObject:[NSMutableArray arrayWithObject:value] forKey:key];
+	}
+	else
+	{
+		[array addObject:value];
+	}
+}
+
 - (void)doPushValue;
 {
     NSString *value = [[[NSString alloc] initWithData:self.data encoding:self.textEncoding] autorelease];
+	
     if ([@"US" isEqualToString:self.currentProperty])
     {
-        [self.attributes setObject:[NSArray arrayWithObject:value] forKey:(NSString*)kMDItemAuthors];
+		[self addString:value toArrayforKey:(NSString*)kMDItemAuthors];
     }
     else if ([@"CA" isEqualToString:self.currentProperty])
     {
@@ -103,45 +167,155 @@ void do_data(sgf_parser *p, const char *data, size_t length)
             self.textEncoding = NSUTF8StringEncoding;
         // TODO other encodings
     }
+    else if ([@"FF" isEqualToString:self.currentProperty])
+    {
+        [self setStringOnce:value forKey:(NSString*)kMDItemVersion];
+    }
     else if ([@"AP" isEqualToString:self.currentProperty])
     {
-        [self.attributes setObject:value forKey:(NSString*)kMDItemCreator];
+        [self setStringOnce:value forKey:(NSString*)kMDItemCreator];
     }
     else if ([@"CP" isEqualToString:self.currentProperty])
     {
-        [self.attributes setObject:value forKey:(NSString*)kMDItemCopyright];
+        [self setStringOnce:value forKey:(NSString*)kMDItemCopyright];
     }
     else if ([@"GN" isEqualToString:self.currentProperty])
     {
-        [self.attributes setObject:value forKey:(NSString*)kMDItemTitle];
+        [self appendString:value forKey:(NSString*)kMDItemTitle];
     }
     else if ([@"GC" isEqualToString:self.currentProperty])
     {
-        [self.attributes setObject:value forKey:(NSString*)kMDItemDescription];
+        [self appendString:value forKey:(NSString*)kMDItemDescription];
     }
-    else if ([@"PW" isEqualToString:self.currentProperty]
-             || [@"PB" isEqualToString:self.currentProperty]
-             || [@"RE" isEqualToString:self.currentProperty]
-             || [@"EV" isEqualToString:self.currentProperty]
-             || [@"C" isEqualToString:self.currentProperty]
-        )
+	else if ([@"RE" isEqualToString:self.currentProperty])
     {
-        NSMutableString *textContent = [self.attributes objectForKey:(NSString*)kMDItemTextContent];
-        if (!textContent)
-        {
-            textContent = [NSMutableString string];
-            [self.attributes setObject:textContent forKey:(NSString*)kMDItemTextContent];
-        }
-        else
-        {
-            [textContent appendString:@" "];
-        }
+        [self appendString:value forKey:(NSString*)kMDItemHeadline];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_result"];
+    }
+	else if ([@"EV" isEqualToString:self.currentProperty])
+    {
+        [self appendString:value forKey:(NSString*)kMDItemCoverage];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_event"];
+    }
+	else if ([@"PC" isEqualToString:self.currentProperty])
+    {
+        [self appendString:value forKey:(NSString*)kMDItemNamedLocation];
+    }
+    else if ([@"PW" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_white"];
+	}
+    else if ([@"PB" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_black"];
+	}
+    else if ([@"WR" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_whiterank"];
+	}
+    else if ([@"BR" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_blackrank"];
+	}
+    else if ([@"BT" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_blackteam"];
+	}
+    else if ([@"WT" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_whiteteam"];
+	}
+    else if ([@"AN" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemContributors];
+	}
+    else if ([@"SO" isEqualToString:self.currentProperty])
+	{ 
+		[self addString:value toArrayforKey:(NSString*)kMDItemPublishers];
+	}
+	else if ([@"C" isEqualToString:self.currentProperty] || [@"N" isEqualToString:self.currentProperty])
+    {
         value = [value stringByReplacingOccurrencesOfString:@"\r\n" withString:@" "];
         value = [value stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
         value = [value stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-        [textContent appendString:value];
+        value = [value stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
+		
+        [self appendString:value forKey:(NSString*)kMDItemTextContent];
     }
-
+	else if ([@"DT" isEqualToString:self.currentProperty])
+    {
+        [self appendString:value forKey:(NSString*)kMDItemTextContent];
+		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_dateplayed"])
+		{
+			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			value = [[value componentsSeparatedByCharactersInSet:
+					  [NSCharacterSet characterSetWithCharactersInString:@" ,"]] objectAtIndex:0];
+			if ([value length] == 10)  // "1980-01-01"
+			{   // NSDate dateWithString is very picky! must have exact format or bombs.  :(
+				value = [NSString stringWithFormat:@"%@ 12:00:00 +0000", value];
+				[self.attributes setObject:[NSDate dateWithString:value] forKey:@"com_breedingpinetrees_sgf_dateplayed"];
+			}
+		}
+    }
+    else if ([@"ON" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_opening"];
+	}
+    else if ([@"OT" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_overtime"];
+	}
+    else if ([@"RO" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_round"];
+	}
+    else if ([@"RU" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_ruleset"];
+	}
+    else if ([@"OH" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_oldhandicap"];
+	}
+	else if ([@"TM" isEqualToString:self.currentProperty])
+    {
+        [self setNumberOnce:value forKey:(NSString*)kMDItemDurationSeconds];
+    }
+    else if ([@"HA" isEqualToString:self.currentProperty])
+	{ 
+        [self setNumberOnce:value forKey:@"com_breedingpinetrees_sgf_handicap"];
+	}
+    else if ([@"KM" isEqualToString:self.currentProperty])
+	{ 
+        [self setNumberOnce:value forKey:@"com_breedingpinetrees_sgf_komi"];
+	}
+    else if ([@"SZ" isEqualToString:self.currentProperty])
+	{ 
+        [self setNumberOnce:value forKey:@"com_breedingpinetrees_sgf_size"];
+	}
+	else if ([@"GM" isEqualToString:self.currentProperty])
+    {
+		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_gametype"])
+		{
+			NSString *name;
+			int gm = [value intValue] - 1;
+			if ((gm >= 0) && (gm < MAX_GAMENAME)) 
+			{
+				name = gameName[gm];
+			}
+			else
+			{
+				name = @"unknown";
+			}
+			
+			[self.attributes setObject:name forKey:@"com_breedingpinetrees_sgf_gametype"];
+		}
+    }
+	
     [self.data setLength:0];
 }
 

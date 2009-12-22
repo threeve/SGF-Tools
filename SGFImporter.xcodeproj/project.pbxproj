@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
+		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
+		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
@@ -42,7 +44,7 @@
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c",
 			);
-			script = "ragel -C -G2 ${INPUT_FILE_PATH} -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c";
+			script = "/usr/local/bin/ragel -C -G2 ${INPUT_FILE_PATH} -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.c";
 		};
 /* End PBXBuildRule section */
 
@@ -74,6 +76,10 @@
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
+		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
+		52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "To Do List.rtf"; sourceTree = "<group>"; };
+		52D8BC6910DECD040026CAF5 /* johnVsGnu.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = johnVsGnu.sgf; path = testfiles/johnVsGnu.sgf; sourceTree = "<group>"; };
+		52D8BC6A10DECD040026CAF5 /* test.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.sgf; path = testfiles/test.sgf; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* SGF.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGF.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9665B8BF1012B6BB007F87B4 /* lemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lemon; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +120,8 @@
 		089C166AFE841209C02AAC07 /* SGFImporter */ = {
 			isa = PBXGroup;
 			children = (
+				52D8BC6810DECCE30026CAF5 /* Test Files */,
+				52D8BBD510DDE5460026CAF5 /* Documentation */,
 				9665B8D61012B917007F87B4 /* SGF */,
 				08FB77AFFE84173DC02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -163,6 +171,24 @@
 				9665B8BF1012B6BB007F87B4 /* lemon */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		52D8BBD510DDE5460026CAF5 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */,
+				52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		52D8BC6810DECCE30026CAF5 /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				52D8BC6910DECD040026CAF5 /* johnVsGnu.sgf */,
+				52D8BC6A10DECD040026CAF5 /* test.sgf */,
+			);
+			name = "Test Files";
 			sourceTree = "<group>";
 		};
 		9665B8C51012B6C9007F87B4 /* Tools */ = {
@@ -262,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */,
+				52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */,
+				52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +364,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SGF;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = mdimporter;
 			};
@@ -349,7 +379,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SGF;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = mdimporter;
 			};
@@ -371,7 +403,7 @@
 		70138C8A0896BE9A00968C2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

@@ -26,11 +26,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.2.1</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
-	<string>NO</string>
+	<false/>
 	<key>CFPlugInFactories</key>
 	<dict>
 		<key>49C6D7CD-3F31-4C31-9A53-B6F5126E1758</key>
@@ -48,14 +48,16 @@
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.breedingpinetrees.sgf</string>
+			<key>UTTypeReferenceURL</key>
+			<string>http://www.red-bean.com/sgf/</string>
 			<key>UTTypeDescription</key>
 			<string>Smart Game Format</string>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.data</string>
+				<string>public.text</string>
 			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.breedingpinetrees.sgf</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>
