@@ -1,0 +1,280 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 525CD2A610E0CC4900A6E43B /* Test SGF.mdimporter */;
+		activeSDKPreference = macosx10.6;
+		activeTarget = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+		codeSenseManager = 525CD27110E0C64300A6E43B /* Code sense */;
+		executables = (
+			525CD26410E0C62500A6E43B /* lemon */,
+			525CD2A610E0CC4900A6E43B /* Test SGF.mdimporter */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					810,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					820,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					780,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 283175786;
+			PBXWorkspaceStateSaveDate = 283175786;
+		};
+		perUserProjectItems = {
+			52F3134E10E0EC3A00390478 /* PBXTextBookmark */ = 52F3134E10E0EC3A00390478 /* PBXTextBookmark */;
+			52F3134F10E0EC3A00390478 /* PBXTextBookmark */ = 52F3134F10E0EC3A00390478 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 525CD27010E0C64300A6E43B /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1100, 925}}";
+			sepNavSelRange = "{132, 0}";
+			sepNavVisRange = "{0, 247}";
+		};
+	};
+	2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1092, 988}}";
+			sepNavSelRange = "{1690, 0}";
+			sepNavVisRange = "{229, 1832}";
+		};
+	};
+	525CD26410E0C62500A6E43B /* lemon */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = lemon;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	525CD27010E0C64300A6E43B /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	525CD27110E0C64300A6E43B /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	525CD2A610E0CC4900A6E43B /* Test SGF.mdimporter */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+			YES,
+			YES,
+			YES,
+			NO,
+		);
+		argumentStrings = (
+			"-d2",
+			"-g $(SRCROOT)/$(CONFIGURATION_BUILD_DIR)/SGF.mdimporter",
+			"$(SRCROOT)/testfiles/johnVsGnu.sgf",
+			"$(SRCROOT)/testfiles/test.sgf",
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+			"PBXLSLaunchAction-0" = {
+				PBXLSLaunchAction = 0;
+				PBXLSLaunchStartAction = 1;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXLSRunLaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = "Executable Runner";
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.runConfig;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		launchableReference = 525CD2A710E0CC4900A6E43B /* mdimport */;
+		libgmallocEnabled = 0;
+		name = "Test SGF.mdimporter";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	525CD2A710E0CC4900A6E43B /* mdimport */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = "compiled.mach-o.executable";
+		name = mdimport;
+		path = /usr/bin/mdimport;
+		sourceTree = "<absolute>";
+	};
+	52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1046, 1361.7}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1046, 876}}";
+		};
+	};
+	52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1046, 876}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1046, 876}}";
+		};
+	};
+	52F3134E10E0EC3A00390478 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9665BA131012F4D2007F87B4 /* SGFImporter.m */;
+		name = "SGFImporter.m: 50";
+		rLen = 0;
+		rLoc = 1936;
+		rType = 0;
+		vrLen = 1359;
+		vrLoc = 1286;
+	};
+	52F3134F10E0EC3A00390478 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9665BA131012F4D2007F87B4 /* SGFImporter.m */;
+		name = "SGFImporter.m: 50";
+		rLen = 0;
+		rLoc = 1936;
+		rType = 0;
+		vrLen = 1095;
+		vrLoc = 1286;
+	};
+	8D57630D048677EA00EA77CD /* Spotlight Importer */ = {
+		activeExec = 0;
+	};
+	96400BAD10E06E4E00052C98 /* LICENSE */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 861}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1080}";
+		};
+	};
+	9665B8BE1012B6BB007F87B4 /* lemon */ = {
+		activeExec = 0;
+		executables = (
+			525CD26410E0C62500A6E43B /* lemon */,
+		);
+	};
+	9665B8C71012B6E2007F87B4 /* lemon.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {772, 93708}}";
+			sepNavSelRange = "{26772, 0}";
+			sepNavVisRange = "{26613, 590}";
+		};
+	};
+	9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1092, 870}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1642}";
+		};
+	};
+	9665BA131012F4D2007F87B4 /* SGFImporter.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 7467}}";
+			sepNavSelRange = "{1936, 0}";
+			sepNavVisRange = "{1286, 1095}";
+		};
+	};
+	96BB9CC810E0842600F46049 /* Readme.md */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 861}}";
+			sepNavSelRange = "{130, 0}";
+			sepNavVisRange = "{0, 1045}";
+		};
+	};
+}

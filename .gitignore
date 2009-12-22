@@ -2,6 +2,7 @@
 build/
 *.mode1v3
 *.pbxuser
+!default.pbxuser
 .DS_Store
 
 # generated files

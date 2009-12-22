@@ -1,6 +1,10 @@
 
 ## Version history
 
+* 1.2.3: 
+    * Fixed bug that intermittently caused files to be only partially
+	indexed by changing encoding to NSASCIIStringEncoding in do_property()
+
 * 1.2.2: 
     * Added Year Played attr because for many old games only this part of
     the date is known. In contrast to the Date Played attr this one is
