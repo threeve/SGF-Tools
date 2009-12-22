@@ -20,28 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-/*
- Version History:
- 1.2:	First release that implemented "all" properties/attrs.
- 
- 1.2.1: Within an hour of releasing 1.2 I found a bug in the DT code that
-		caused the importer to crash on incomplete dates, this ver
-		fixes that.
- 
- 1.2.2:	Added Year Played attr because for many old games only this part of
-		the date is known. In contrast to the Date Played attr this one is
-		a plain CFNumber.
- 
-		Further improved the handling of DT prop to Date Played attr conv.
- 
-		Replaced call to deprecated stringWithCString:length: in do_property()
-		(I hate seeing warnings for a good build)
- 
-		Added Winner & Loser attrs derrived from the RE PW PB props as
-		suggested by Anders.
- 
-		Fixed memory leaks in do_property() & appendString:forKey:
- */
 
 #import "SGFImporter.h"
 
