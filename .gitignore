@@ -1,7 +1,8 @@
-# Xcode cruft
+# Xcode and Mac cruft
 build/
 *.mode1v3
 *.pbxuser
+.DS_Store
 
 # generated files
 sgf/sgfparse.c
