@@ -170,8 +170,6 @@
 				52D8BC6810DECCE30026CAF5 /* Test Files */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
-				968B498110F061E6005DC450 /* Quartz.framework */,
-				968B498610F061ED005DC450 /* QuickLook.framework */,
 			);
 			name = SGFImporter;
 			sourceTree = "<group>";
@@ -182,6 +180,8 @@
 				9665B9111012BEE3007F87B4 /* Cocoa.framework */,
 				C86B05260671AA6E00DD9006 /* CoreServices.framework */,
 				0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */,
+				968B498110F061E6005DC450 /* Quartz.framework */,
+				968B498610F061ED005DC450 /* QuickLook.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
