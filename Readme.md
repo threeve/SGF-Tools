@@ -5,7 +5,7 @@
 * 1.2.4: 
     * Added 9 language localization string files using translations
 	kindly supplied by Anders Kierulf (maker of the wonderful SmartGo
-	software. Some are only partially translated.  Help with missing 
+	software). Some are only partially translated.  Help with missing 
 	translations & other languages welcomed!
 	
 * 1.2.3: 
