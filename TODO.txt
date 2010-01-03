@@ -1,0 +1,4 @@
+* add the applicable translation strings
+* create installer
+* add calculated # moves attr
+* create quicklook/coverflow view generator
