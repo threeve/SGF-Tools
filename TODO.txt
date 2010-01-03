@@ -1,4 +1,3 @@
-* add the applicable translation strings
 * create installer
 * add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
 * replace parser w/Arno's reference code
