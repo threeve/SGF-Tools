@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <CoreServices/CoreServices.h>
-#include <QuickLook/QuickLook.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CoreServices/CoreServices.h>
+#import <QuickLook/QuickLook.h>
 #import <Quartz/Quartz.h>
 
 /* -----------------------------------------------------------------------------
@@ -36,6 +36,17 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 //    #warning To complete your generator please implement the function GeneratePreviewForURL in GeneratePreviewForURL.c
     
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
+
+    MDItemRef metadata = MDItemCreateWithURL(NULL, url);
+    if (!metadata)
+        return noErr;
+    
+    NSArray *attributeNames = (NSArray*)MDItemCopyAttributeNames(metadata);
+
+    NSLog(@"Got attrib names: %@", attributeNames);
+    
+    [attributeNames release];
+    CFRelease(metadata);
     
     CGSize size = CGSizeMake(400, 400);
     CGContextRef cgContext = QLPreviewRequestCreateContext(preview, size, false, NULL);
@@ -44,9 +55,9 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     
     [NSGraphicsContext saveGraphicsState];
     [NSGraphicsContext setCurrentContext:context];
-    
+
     // TODO draw properties here.
-    
+
     [NSGraphicsContext restoreGraphicsState];
 
     QLPreviewRequestFlushContext(preview, cgContext);
