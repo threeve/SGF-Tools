@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		968B4B0510F140DC005DC450 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 968B4B0E10F140F0005DC450 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				968B4B0910F140E2005DC450 /* PBXTargetDependency */,
+				968B4B0B10F140E2005DC450 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
 		520F868310E1766000E6C4BB /* ABOUT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868010E1766000E6C4BB /* ABOUT.txt */; };
@@ -66,6 +81,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9665B8BE1012B6BB007F87B4;
 			remoteInfo = lemon;
+		};
+		968B4B0810F140E2005DC450 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+			remoteInfo = "Spotlight Importer";
+		};
+		968B4B0A10F140E2005DC450 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 968B495010F05D93005DC450 /* QuickLook Generator */;
+			remoteInfo = "QuickLook Generator";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -394,6 +423,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				968B4B0510F140DC005DC450 /* All */,
 				8D57630D048677EA00EA77CD /* Spotlight Importer */,
 				968B495010F05D93005DC450 /* QuickLook Generator */,
 				9665B8BE1012B6BB007F87B4 /* lemon */,
@@ -474,6 +504,16 @@
 			isa = PBXTargetDependency;
 			target = 9665B8BE1012B6BB007F87B4 /* lemon */;
 			targetProxy = 9665B8CE1012B6EC007F87B4 /* PBXContainerItemProxy */;
+		};
+		968B4B0910F140E2005DC450 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+			targetProxy = 968B4B0810F140E2005DC450 /* PBXContainerItemProxy */;
+		};
+		968B4B0B10F140E2005DC450 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 968B495010F05D93005DC450 /* QuickLook Generator */;
+			targetProxy = 968B4B0A10F140E2005DC450 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -645,6 +685,27 @@
 			};
 			name = Release;
 		};
+		968B4B0610F140DD005DC450 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		968B4B0710F140DD005DC450 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -680,6 +741,15 @@
 			buildConfigurations = (
 				968B495310F05D94005DC450 /* Debug */,
 				968B495410F05D94005DC450 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968B4B0E10F140F0005DC450 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968B4B0610F140DD005DC450 /* Debug */,
+				968B4B0710F140DD005DC450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
