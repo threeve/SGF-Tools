@@ -25,43 +25,37 @@
 #import <QuickLook/QuickLook.h>
 #import <Quartz/Quartz.h>
 
-/* -----------------------------------------------------------------------------
-   Generate a preview for file
+#import "SGFPreviewViewController.h"
 
-   This function's job is to create preview for designated file
-   ----------------------------------------------------------------------------- */
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
-//    #warning To complete your generator please implement the function GeneratePreviewForURL in GeneratePreviewForURL.c
-    
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
 
     MDItemRef metadata = MDItemCreateWithURL(NULL, url);
     if (!metadata)
         return noErr;
     
-    NSArray *attributeNames = (NSArray*)MDItemCopyAttributeNames(metadata);
-
-    NSLog(@"Got attrib names: %@", attributeNames);
-    
-    [attributeNames release];
+    CFArrayRef attributeNames = MDItemCopyAttributeNames(metadata);
+    NSDictionary *attributes = (NSDictionary*)MDItemCopyAttributes(metadata, attributeNames);
+    [attributes autorelease];
+    CFRelease(attributeNames);
     CFRelease(metadata);
     
-    CGSize size = CGSizeMake(400, 400);
-    CGContextRef cgContext = QLPreviewRequestCreateContext(preview, size, false, NULL);
-    
+    SGFPreviewViewController *sgfPreview = [[SGFPreviewViewController alloc] initWithNibName:@"SGFPreview" bundle:[NSBundle bundleForClass:[SGFPreviewViewController class]]];
+    [sgfPreview setRepresentedObject:attributes];
+
+    NSRect viewBounds = [[sgfPreview view] bounds];
+    CGContextRef cgContext = QLPreviewRequestCreateContext(preview, NSSizeToCGSize(viewBounds.size), false, NULL);
     NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
-    
     [NSGraphicsContext saveGraphicsState];
     [NSGraphicsContext setCurrentContext:context];
 
-    // TODO draw properties here.
+    [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
 
+    [sgfPreview release];
     [NSGraphicsContext restoreGraphicsState];
-
     QLPreviewRequestFlushContext(preview, cgContext);
-    
     CFRelease(cgContext);
     [pool drain];
     
