@@ -4,4 +4,3 @@
 * add calculated # moves attr
 * create quicklook/coverflow view generator
 * create custom sgf search/view app
-
