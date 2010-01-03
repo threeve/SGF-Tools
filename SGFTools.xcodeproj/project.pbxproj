@@ -83,9 +83,9 @@
 		520F868110E1766000E6C4BB /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS.txt; sourceTree = "<group>"; };
 		520F868210E1766000E6C4BB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
-		52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "To Do List.rtf"; sourceTree = "<group>"; };
 		52D8BC6910DECD040026CAF5 /* johnVsGnu.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = johnVsGnu.sgf; path = testfiles/johnVsGnu.sgf; sourceTree = "<group>"; };
 		52D8BC6A10DECD040026CAF5 /* test.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.sgf; path = testfiles/test.sgf; sourceTree = "<group>"; };
+		52EBD25110F0572E000C9DC2 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* SGF.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGF.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9665B8BF1012B6BB007F87B4 /* lemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lemon; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,11 +188,11 @@
 		52D8BBD510DDE5460026CAF5 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				52EBD25110F0572E000C9DC2 /* TODO.txt */,
 				520F868010E1766000E6C4BB /* ABOUT.txt */,
 				520F868110E1766000E6C4BB /* AUTHORS.txt */,
 				520F868210E1766000E6C4BB /* LICENSE.txt */,
 				52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */,
-				52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */,
 				96BB9CC810E0842600F46049 /* Readme.md */,
 			);
 			name = Documentation;

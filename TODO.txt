@@ -1,5 +1,7 @@
 * add the applicable translation strings
 * create installer
+* add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
+* replace parser w/Arno's reference code
 * add calculated # moves attr
 * create quicklook/coverflow view generator
 * create custom sgf search/view app

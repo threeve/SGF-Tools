@@ -1,3 +1,5 @@
+## See the ABOUT.txt file for the project description, how to install,
+	and brief directions for use.
 
 ## Version history
 
