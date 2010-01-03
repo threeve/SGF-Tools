@@ -143,11 +143,11 @@
 		9665B9111012BEE3007F87B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFImporter.h; sourceTree = "<group>"; };
 		9665BA131012F4D2007F87B4 /* SGFImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFImporter.m; sourceTree = "<group>"; };
-		968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneratePreviewForURL.m; path = QuickLookGenerator/GeneratePreviewForURL.m; sourceTree = "<group>"; };
-		968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenerateThumbnailForURL.m; path = QuickLookGenerator/GenerateThumbnailForURL.m; sourceTree = "<group>"; };
-		968B494210F05CEF005DC450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = QuickLookGenerator/Info.plist; sourceTree = "<group>"; };
-		968B494310F05CEF005DC450 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = QuickLookGenerator/main.c; sourceTree = "<group>"; };
-		968B494510F05CFE005DC450 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = QuickLookGenerator/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
+		968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		968B494210F05CEF005DC450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		968B494310F05CEF005DC450 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		968B494510F05CFE005DC450 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		968B495110F05D93005DC450 /* SGF.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGF.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		968B498110F061E6005DC450 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		968B498610F061ED005DC450 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -201,9 +201,8 @@
 				96BB9C2D10E07EBA00F46049 /* Config */,
 				52D8BBD510DDE5460026CAF5 /* Documentation */,
 				9665B8D61012B917007F87B4 /* SGF Parser */,
-				08FB77AFFE84173DC02AAC07 /* Spotlight Importer */,
-				968B493F10F05CC4005DC450 /* QuickLook Generator */,
-				089C167CFE841241C02AAC07 /* Resources */,
+				08FB77AFFE84173DC02AAC07 /* SpotlightImporter */,
+				968B493F10F05CC4005DC450 /* QuickLookGenerator */,
 				9665B8C51012B6C9007F87B4 /* Tools */,
 				52D8BC6810DECCE30026CAF5 /* Test Files */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
@@ -224,26 +223,19 @@
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
 		};
-		089C167CFE841241C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C88FB7E30674480E006EBB30 /* schema.strings */,
-				C88FB7D7067446EC006EBB30 /* schema.xml */,
-				8D576317048677EA00EA77CD /* Info.plist */,
-				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		08FB77AFFE84173DC02AAC07 /* Spotlight Importer */ = {
+		08FB77AFFE84173DC02AAC07 /* SpotlightImporter */ = {
 			isa = PBXGroup;
 			children = (
 				2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */,
+				8D576317048677EA00EA77CD /* Info.plist */,
+				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
 				08FB77B6FE84183AC02AAC07 /* main.c */,
+				C88FB7E30674480E006EBB30 /* schema.strings */,
+				C88FB7D7067446EC006EBB30 /* schema.xml */,
 				9665BA121012F4D2007F87B4 /* SGFImporter.h */,
 				9665BA131012F4D2007F87B4 /* SGFImporter.m */,
 			);
-			name = "Spotlight Importer";
+			path = SpotlightImporter;
 			sourceTree = "<group>";
 		};
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
@@ -297,19 +289,19 @@
 			name = "SGF Parser";
 			sourceTree = "<group>";
 		};
-		968B493F10F05CC4005DC450 /* QuickLook Generator */ = {
+		968B493F10F05CC4005DC450 /* QuickLookGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				968B494410F05CFE005DC450 /* InfoPlist.strings */,
 				968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */,
 				968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */,
 				968B494210F05CEF005DC450 /* Info.plist */,
+				968B494410F05CFE005DC450 /* InfoPlist.strings */,
 				968B494310F05CEF005DC450 /* main.c */,
 				968B49F710F12A71005DC450 /* SGFPreview.xib */,
 				968B49FA10F12D1A005DC450 /* SGFPreviewViewController.h */,
 				968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */,
 			);
-			name = "QuickLook Generator";
+			path = QuickLookGenerator;
 			sourceTree = "<group>";
 		};
 		96BB9C2D10E07EBA00F46049 /* Config */ = {
@@ -529,7 +521,7 @@
 		968B494410F05CFE005DC450 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				968B494510F05CFE005DC450 /* English */,
+				968B494510F05CFE005DC450 /* InfoPlist.strings */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -561,7 +553,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = SpotlightImporter/Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SGF;
@@ -577,7 +569,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = SpotlightImporter/Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SGF;
