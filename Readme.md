@@ -1,8 +1,12 @@
-## See the ABOUT.txt file for the project description, how to install,
-	and brief directions for use.
+# See the ABOUT.txt file for the project description and brief directions for installation/use.
 
 ## Version history
 
+* 1.2.4: 
+    * Added 9 language localization string files, some are only partially
+	translated.  Help with missing translations & other languages
+	welcomed!
+	
 * 1.2.3: 
     * Fixed bug that intermittently caused files to be only partially
 	indexed by changing encoding to NSASCIIStringEncoding in do_property()
