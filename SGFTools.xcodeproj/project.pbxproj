@@ -138,7 +138,7 @@
 		9665B8C71012B6E2007F87B4 /* lemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lemon.c; path = tools/lemon.c; sourceTree = "<group>"; };
 		9665B8C81012B6E2007F87B4 /* lempar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lempar.c; path = tools/lempar.c; sourceTree = "<group>"; };
 		9665B8D71012B959007F87B4 /* sgfparse.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = sgfparse.y; path = sgf/sgfparse.y; sourceTree = "<group>"; };
-		9665B8D81012B959007F87B4 /* sgfscan.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sgfscan.rl; path = sgf/sgfscan.rl; sourceTree = "<group>"; };
+		9665B8D81012B959007F87B4 /* sgfscan.rl */ = {isa = PBXFileReference; explicitFileType = sourcecode.lex; fileEncoding = 4; name = sgfscan.rl; path = sgf/sgfscan.rl; sourceTree = "<group>"; };
 		9665B8F61012BC42007F87B4 /* sgf_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sgf_parser.h; path = sgf/sgf_parser.h; sourceTree = "<group>"; };
 		9665B9111012BEE3007F87B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFImporter.h; sourceTree = "<group>"; };
