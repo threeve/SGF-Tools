@@ -3,18 +3,20 @@
 * create installer
 * create custom sgf search/view app
 
-~~~
+~~~~~~~~~~~~~~~~~~~~
 # Spotlight importer
 
 * add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
 * replace parser w/Arno's reference code
 * add calculated # moves attr
 
-~~~
+~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
 * move white player above blk
 * make rank [] disappear if unknown
+* show handicap if > 1
+* add outline to blk dot/stone to enhance visibility 
 * possibly add --- or some other mark(s) to empty player & other fields?
 * create quicklook thumbnail generator
 
