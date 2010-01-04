@@ -2,5 +2,5 @@
 * add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
 * replace parser w/Arno's reference code
 * add calculated # moves attr
-* create quicklook/coverflow view generator
+* create quicklook thumbnail generator
 * create custom sgf search/view app

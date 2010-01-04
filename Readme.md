@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.3:
+    * Added a QuickLook preview generator.
+    
 * 1.2.4: 
     * Added 9 language localization string files using translations
 	kindly supplied by Anders Kierulf (maker of the wonderful SmartGo

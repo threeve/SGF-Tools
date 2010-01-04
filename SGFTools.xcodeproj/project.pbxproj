@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		968B4B0510F140DC005DC450 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 968B4B0E10F140F0005DC450 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				968B4B0910F140E2005DC450 /* PBXTargetDependency */,
+				968B4B0B10F140E2005DC450 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
 		520F868310E1766000E6C4BB /* ABOUT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868010E1766000E6C4BB /* ABOUT.txt */; };
@@ -23,6 +38,14 @@
 		9665B9121012BEE3007F87B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9665B9111012BEE3007F87B4 /* Cocoa.framework */; };
 		9665BA141012F4D2007F87B4 /* SGFImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9665BA121012F4D2007F87B4 /* SGFImporter.h */; };
 		9665BA151012F4D2007F87B4 /* SGFImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9665BA131012F4D2007F87B4 /* SGFImporter.m */; };
+		968B495810F05E1F005DC450 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 968B494310F05CEF005DC450 /* main.c */; };
+		968B495910F05E20005DC450 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */; };
+		968B495A10F05E21005DC450 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */; };
+		968B498210F061E6005DC450 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B498110F061E6005DC450 /* Quartz.framework */; };
+		968B498710F061ED005DC450 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B498610F061ED005DC450 /* QuickLook.framework */; };
+		968B498A10F0620C005DC450 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9665B9111012BEE3007F87B4 /* Cocoa.framework */; };
+		968B49F810F12A71005DC450 /* SGFPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968B49F710F12A71005DC450 /* SGFPreview.xib */; };
+		968B49FC10F12D1A005DC450 /* SGFPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */; };
 		C86B05270671AA6E00DD9006 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86B05260671AA6E00DD9006 /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +81,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9665B8BE1012B6BB007F87B4;
 			remoteInfo = lemon;
+		};
+		968B4B0810F140E2005DC450 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+			remoteInfo = "Spotlight Importer";
+		};
+		968B4B0A10F140E2005DC450 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 968B495010F05D93005DC450 /* QuickLook Generator */;
+			remoteInfo = "QuickLook Generator";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -101,11 +138,22 @@
 		9665B8C71012B6E2007F87B4 /* lemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lemon.c; path = tools/lemon.c; sourceTree = "<group>"; };
 		9665B8C81012B6E2007F87B4 /* lempar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lempar.c; path = tools/lempar.c; sourceTree = "<group>"; };
 		9665B8D71012B959007F87B4 /* sgfparse.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = sgfparse.y; path = sgf/sgfparse.y; sourceTree = "<group>"; };
-		9665B8D81012B959007F87B4 /* sgfscan.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sgfscan.rl; path = sgf/sgfscan.rl; sourceTree = "<group>"; };
+		9665B8D81012B959007F87B4 /* sgfscan.rl */ = {isa = PBXFileReference; explicitFileType = sourcecode.lex; fileEncoding = 4; name = sgfscan.rl; path = sgf/sgfscan.rl; sourceTree = "<group>"; };
 		9665B8F61012BC42007F87B4 /* sgf_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sgf_parser.h; path = sgf/sgf_parser.h; sourceTree = "<group>"; };
 		9665B9111012BEE3007F87B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFImporter.h; sourceTree = "<group>"; };
 		9665BA131012F4D2007F87B4 /* SGFImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFImporter.m; sourceTree = "<group>"; };
+		968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
+		968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		968B494210F05CEF005DC450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		968B494310F05CEF005DC450 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		968B494510F05CFE005DC450 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		968B495110F05D93005DC450 /* SGF.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGF.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		968B498110F061E6005DC450 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		968B498610F061ED005DC450 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		968B49F710F12A71005DC450 /* SGFPreview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGFPreview.xib; sourceTree = "<group>"; };
+		968B49FA10F12D1A005DC450 /* SGFPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFPreviewViewController.h; sourceTree = "<group>"; };
+		968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFPreviewViewController.m; sourceTree = "<group>"; };
 		96BB9C2F10E07EC700F46049 /* Project-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Base.xcconfig"; path = "Config/Project-Base.xcconfig"; sourceTree = "<group>"; };
 		96BB9C3010E07EC700F46049 /* Project-Coverage.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Coverage.xcconfig"; path = "Config/Project-Coverage.xcconfig"; sourceTree = "<group>"; };
 		96BB9C3110E07EC700F46049 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Debug.xcconfig"; path = "Config/Project-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +182,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		968B494F10F05D93005DC450 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968B498210F061E6005DC450 /* Quartz.framework in Frameworks */,
+				968B498710F061ED005DC450 /* QuickLook.framework in Frameworks */,
+				968B498A10F0620C005DC450 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -143,8 +201,8 @@
 				96BB9C2D10E07EBA00F46049 /* Config */,
 				52D8BBD510DDE5460026CAF5 /* Documentation */,
 				9665B8D61012B917007F87B4 /* SGF Parser */,
-				08FB77AFFE84173DC02AAC07 /* Spotlight Importer */,
-				089C167CFE841241C02AAC07 /* Resources */,
+				08FB77AFFE84173DC02AAC07 /* SpotlightImporter */,
+				968B493F10F05CC4005DC450 /* QuickLookGenerator */,
 				9665B8C51012B6C9007F87B4 /* Tools */,
 				52D8BC6810DECCE30026CAF5 /* Test Files */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
@@ -159,30 +217,25 @@
 				9665B9111012BEE3007F87B4 /* Cocoa.framework */,
 				C86B05260671AA6E00DD9006 /* CoreServices.framework */,
 				0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */,
+				968B498110F061E6005DC450 /* Quartz.framework */,
+				968B498610F061ED005DC450 /* QuickLook.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
 		};
-		089C167CFE841241C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C88FB7E30674480E006EBB30 /* schema.strings */,
-				C88FB7D7067446EC006EBB30 /* schema.xml */,
-				8D576317048677EA00EA77CD /* Info.plist */,
-				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		08FB77AFFE84173DC02AAC07 /* Spotlight Importer */ = {
+		08FB77AFFE84173DC02AAC07 /* SpotlightImporter */ = {
 			isa = PBXGroup;
 			children = (
 				2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */,
+				8D576317048677EA00EA77CD /* Info.plist */,
+				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
 				08FB77B6FE84183AC02AAC07 /* main.c */,
+				C88FB7E30674480E006EBB30 /* schema.strings */,
+				C88FB7D7067446EC006EBB30 /* schema.xml */,
 				9665BA121012F4D2007F87B4 /* SGFImporter.h */,
 				9665BA131012F4D2007F87B4 /* SGFImporter.m */,
 			);
-			name = "Spotlight Importer";
+			path = SpotlightImporter;
 			sourceTree = "<group>";
 		};
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
@@ -190,6 +243,7 @@
 			children = (
 				8D576316048677EA00EA77CD /* SGF.mdimporter */,
 				9665B8BF1012B6BB007F87B4 /* lemon */,
+				968B495110F05D93005DC450 /* SGF.qlgenerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +287,21 @@
 				9665B8D81012B959007F87B4 /* sgfscan.rl */,
 			);
 			name = "SGF Parser";
+			sourceTree = "<group>";
+		};
+		968B493F10F05CC4005DC450 /* QuickLookGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */,
+				968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */,
+				968B494210F05CEF005DC450 /* Info.plist */,
+				968B494410F05CFE005DC450 /* InfoPlist.strings */,
+				968B494310F05CEF005DC450 /* main.c */,
+				968B49F710F12A71005DC450 /* SGFPreview.xib */,
+				968B49FA10F12D1A005DC450 /* SGFPreviewViewController.h */,
+				968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */,
+			);
+			path = QuickLookGenerator;
 			sourceTree = "<group>";
 		};
 		96BB9C2D10E07EBA00F46049 /* Config */ = {
@@ -300,6 +369,23 @@
 			productReference = 9665B8BF1012B6BB007F87B4 /* lemon */;
 			productType = "com.apple.product-type.tool";
 		};
+		968B495010F05D93005DC450 /* QuickLook Generator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968B495510F05D94005DC450 /* Build configuration list for PBXNativeTarget "QuickLook Generator" */;
+			buildPhases = (
+				968B494D10F05D93005DC450 /* Resources */,
+				968B494E10F05D93005DC450 /* Sources */,
+				968B494F10F05D93005DC450 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuickLook Generator";
+			productName = "QuickLook Generator";
+			productReference = 968B495110F05D93005DC450 /* SGF.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -329,7 +415,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				968B4B0510F140DC005DC450 /* All */,
 				8D57630D048677EA00EA77CD /* Spotlight Importer */,
+				968B495010F05D93005DC450 /* QuickLook Generator */,
 				9665B8BE1012B6BB007F87B4 /* lemon */,
 			);
 		};
@@ -346,6 +434,14 @@
 				520F868310E1766000E6C4BB /* ABOUT.txt in Resources */,
 				520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */,
 				520F868510E1766000E6C4BB /* LICENSE.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968B494D10F05D93005DC450 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968B49F810F12A71005DC450 /* SGFPreview.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +478,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		968B494E10F05D93005DC450 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968B495810F05E1F005DC450 /* main.c in Sources */,
+				968B495910F05E20005DC450 /* GenerateThumbnailForURL.m in Sources */,
+				968B495A10F05E21005DC450 /* GeneratePreviewForURL.m in Sources */,
+				968B49FC10F12D1A005DC450 /* SGFPreviewViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -390,6 +497,16 @@
 			target = 9665B8BE1012B6BB007F87B4 /* lemon */;
 			targetProxy = 9665B8CE1012B6EC007F87B4 /* PBXContainerItemProxy */;
 		};
+		968B4B0910F140E2005DC450 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+			targetProxy = 968B4B0810F140E2005DC450 /* PBXContainerItemProxy */;
+		};
+		968B4B0B10F140E2005DC450 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 968B495010F05D93005DC450 /* QuickLook Generator */;
+			targetProxy = 968B4B0A10F140E2005DC450 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -397,6 +514,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		968B494410F05CFE005DC450 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				968B494510F05CFE005DC450 /* InfoPlist.strings */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -428,7 +553,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = SpotlightImporter/Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SGF;
@@ -444,7 +569,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = SpotlightImporter/Info.plist;
 				INSTALL_PATH = /Library/Spotlight;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SGF;
@@ -518,6 +643,61 @@
 			};
 			name = Release;
 		};
+		968B495310F05D94005DC450 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = QuickLookGenerator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PREBINDING = NO;
+				PRODUCT_NAME = SGF;
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Debug;
+		};
+		968B495410F05D94005DC450 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = QuickLookGenerator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PREBINDING = NO;
+				PRODUCT_NAME = SGF;
+				WRAPPER_EXTENSION = qlgenerator;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		968B4B0610F140DD005DC450 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		968B4B0710F140DD005DC450 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,6 +724,24 @@
 			buildConfigurations = (
 				9665B8C11012B6BC007F87B4 /* Debug */,
 				9665B8C21012B6BC007F87B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968B495510F05D94005DC450 /* Build configuration list for PBXNativeTarget "QuickLook Generator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968B495310F05D94005DC450 /* Debug */,
+				968B495410F05D94005DC450 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968B4B0E10F140F0005DC450 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968B4B0610F140DD005DC450 /* Debug */,
+				968B4B0710F140DD005DC450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

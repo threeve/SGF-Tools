@@ -8,7 +8,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>MDImporter</string>
+			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.breedingpinetrees.sgf</string>
@@ -17,34 +17,46 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.breedingpinetrees.${PRODUCT_NAME:identifier}</string>
+	<string>com.breedingpinetrees.sgftools.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1</string>
 	<key>CFBundleVersion</key>
-	<string>1.2.4</string>
+	<string>1.3</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
-	<false/>
+	<string>NO</string>
 	<key>CFPlugInFactories</key>
 	<dict>
-		<key>49C6D7CD-3F31-4C31-9A53-B6F5126E1758</key>
-		<string>MetadataImporterPluginFactory</string>
+		<key>4ADEF794-E3CD-431F-98D2-FF9FAE091D0F</key>
+		<string>QuickLookGeneratorPluginFactory</string>
 	</dict>
 	<key>CFPlugInTypes</key>
 	<dict>
-		<key>8B08C4BF-415B-11D8-B3F9-0003936726FC</key>
+		<key>5E2D9680-5022-40FA-B806-43349622E5B9</key>
 		<array>
-			<string>49C6D7CD-3F31-4C31-9A53-B6F5126E1758</string>
+			<string>4ADEF794-E3CD-431F-98D2-FF9FAE091D0F</string>
 		</array>
 	</dict>
 	<key>CFPlugInUnloadFunction</key>
 	<string></string>
+	<key>QLNeedsToBeRunInMainThread</key>
+	<false/>
+	<key>QLPreviewHeight</key>
+	<real>600</real>
+	<key>QLPreviewWidth</key>
+	<real>800</real>
+	<key>QLSupportsConcurrentRequests</key>
+	<false/>
+	<key>QLThumbnailMinimumSize</key>
+	<real>17</real>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
