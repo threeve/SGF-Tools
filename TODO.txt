@@ -16,11 +16,6 @@
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
-* move white player above blk
-* make rank [] disappear if unknown
-* show handicap if > 1
-* Make event field 2 lines tall (some events are long)
-* add outline to blk dot/stone to enhance visibility (maybe change bkgrnd?)
 * possibly add "---" or some other mark(s) to empty player & other fields?
 * create quicklook thumbnail generator
 
