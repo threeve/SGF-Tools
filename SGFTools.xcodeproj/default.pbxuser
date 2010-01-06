@@ -1,14 +1,18 @@
 // !$*UTF8*$!
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Release;
-		activeExecutable = 525CD2A610E0CC4900A6E43B /* Test SGF.mdimporter */;
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 52DAC20A10F4C0C80055D91D /* Test QuickLook Generator */;
 		activeSDKPreference = macosx10.6;
-		activeTarget = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+		activeTarget = 968B495010F05D93005DC450 /* QuickLook Generator */;
+		addToTargets = (
+			968B4B0510F140DC005DC450 /* All */,
+		);
 		codeSenseManager = 525CD27110E0C64300A6E43B /* Code sense */;
 		executables = (
 			525CD26410E0C62500A6E43B /* lemon */,
 			525CD2A610E0CC4900A6E43B /* Test SGF.mdimporter */,
+			52DAC20A10F4C0C80055D91D /* Test QuickLook Generator */,
 		);
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
@@ -17,7 +21,7 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					22,
 					300,
-					810,
+					1268,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXExecutablesDataSource_ActiveFlagID,
@@ -30,7 +34,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					820,
+					1380,
 					20,
 					48,
 					43,
@@ -69,12 +73,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 283175786;
-			PBXWorkspaceStateSaveDate = 283175786;
+			PBXPerProjectTemplateStateSaveDate = 284475190;
+			PBXWorkspaceStateSaveDate = 284475190;
 		};
 		perUserProjectItems = {
-			52F3134E10E0EC3A00390478 /* PBXTextBookmark */ = 52F3134E10E0EC3A00390478 /* PBXTextBookmark */;
-			52F3134F10E0EC3A00390478 /* PBXTextBookmark */ = 52F3134F10E0EC3A00390478 /* PBXTextBookmark */;
+			52DAC23010F4C4750055D91D /* PBXTextBookmark */ = 52DAC23010F4C4750055D91D /* PBXTextBookmark */;
+			52DAC23110F4C4750055D91D /* PBXTextBookmark */ = 52DAC23110F4C4750055D91D /* PBXTextBookmark */;
 		};
 		sourceControlManager = 525CD27010E0C64300A6E43B /* Source Control */;
 		userBuildSettings = {
@@ -82,9 +86,9 @@
 	};
 	089C167EFE841241C02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1100, 925}}";
-			sepNavSelRange = "{132, 0}";
-			sepNavVisRange = "{0, 247}";
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{255, 0}";
+			sepNavVisRange = "{0, 255}";
 		};
 	};
 	2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {
@@ -92,6 +96,20 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1092, 988}}";
 			sepNavSelRange = "{1690, 0}";
 			sepNavVisRange = "{229, 1832}";
+		};
+	};
+	520F868110E1766000E6C4BB /* AUTHORS.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{220, 0}";
+			sepNavVisRange = "{0, 220}";
+		};
+	};
+	520F868210E1766000E6C4BB /* LICENSE.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{1080, 0}";
+			sepNavVisRange = "{0, 1093}";
 		};
 	};
 	525CD26410E0C62500A6E43B /* lemon */ = {
@@ -199,49 +217,162 @@
 		path = /usr/bin/mdimport;
 		sourceTree = "<absolute>";
 	};
+	52AF338910F4A6DE00E5E671 /* postinstall.sh */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{178, 0}";
+			sepNavVisRange = "{0, 178}";
+		};
+	};
 	52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1046, 1361.7}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1607, 1361.7}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {1046, 876}}";
+			sepNavVisRect = "{{0, 0}, {1607, 956}}";
 		};
 	};
-	52D8BC0A10DDE7990026CAF5 /* To Do List.rtf */ = {
+	52DAC20A10F4C0C80055D91D /* Test QuickLook Generator */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+			NO,
+			YES,
+			YES,
+			YES,
+			YES,
+			YES,
+		);
+		argumentStrings = (
+			"-t ",
+			"-p",
+			"-d 2",
+			"-c com.breedingpinetrees.sgf",
+			"-g $(SRCROOT)/$(CONFIGURATION_BUILD_DIR)/SGF.qlgenerator",
+			"$(SRCROOT)/testfiles/johnVsGnu.sgf",
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		launchableReference = 52DAC20B10F4C0C80055D91D /* qlmanage */;
+		libgmallocEnabled = 0;
+		name = "Test QuickLook Generator";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	52DAC20B10F4C0C80055D91D /* qlmanage */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = "compiled.mach-o.executable";
+		name = qlmanage;
+		path = /usr/bin/qlmanage;
+		sourceTree = "<absolute>";
+	};
+	52DAC23010F4C4750055D91D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 52EBD25110F0572E000C9DC2 /* TODO.txt */;
+		name = "TODO.txt: 20";
+		rLen = 0;
+		rLoc = 568;
+		rType = 0;
+		vrLen = 848;
+		vrLoc = 0;
+	};
+	52DAC23110F4C4750055D91D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 52EBD25110F0572E000C9DC2 /* TODO.txt */;
+		name = "TODO.txt: 27";
+		rLen = 0;
+		rLoc = 848;
+		rType = 0;
+		vrLen = 848;
+		vrLoc = 0;
+	};
+	52EBD25110F0572E000C9DC2 /* TODO.txt */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1046, 876}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {1046, 876}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{848, 0}";
+			sepNavVisRange = "{0, 848}";
 		};
 	};
-	52F3134E10E0EC3A00390478 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9665BA131012F4D2007F87B4 /* SGFImporter.m */;
-		name = "SGFImporter.m: 50";
-		rLen = 0;
-		rLoc = 1936;
-		rType = 0;
-		vrLen = 1359;
-		vrLoc = 1286;
+	52EBD28710F076CA000C9DC2 /* French */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1254}}";
+			sepNavSelRange = "{1502, 0}";
+			sepNavVisRange = "{491, 1978}";
+		};
 	};
-	52F3134F10E0EC3A00390478 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9665BA131012F4D2007F87B4 /* SGFImporter.m */;
-		name = "SGFImporter.m: 50";
-		rLen = 0;
-		rLoc = 1936;
-		rType = 0;
-		vrLen = 1095;
-		vrLoc = 1286;
+	52EBD28810F076D5000C9DC2 /* German */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1254}}";
+			sepNavSelRange = "{1494, 0}";
+			sepNavVisRange = "{442, 2008}";
+		};
+	};
+	52EBD28910F076DD000C9DC2 /* Japanese */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1506}}";
+			sepNavSelRange = "{1623, 0}";
+			sepNavVisRange = "{0, 1422}";
+		};
+	};
+	52EBD29410F07BBD000C9DC2 /* zh_CN */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1386}}";
+			sepNavSelRange = "{2054, 0}";
+			sepNavVisRange = "{0, 1542}";
+		};
+	};
+	52EBD29510F07BC5000C9DC2 /* zh_TW */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1446}}";
+			sepNavSelRange = "{2062, 1}";
+			sepNavVisRange = "{612, 1701}";
+		};
+	};
+	52EBD29610F07BCB000C9DC2 /* sv */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1273}}";
+			sepNavSelRange = "{651, 0}";
+			sepNavVisRange = "{0, 1832}";
+		};
+	};
+	52EBD29710F07BCE000C9DC2 /* ru */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1254}}";
+			sepNavSelRange = "{2445, 11}";
+			sepNavVisRange = "{490, 1970}";
+		};
+	};
+	52EBD29810F07BD1000C9DC2 /* pl */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1254}}";
+			sepNavSelRange = "{2459, 8}";
+			sepNavVisRange = "{489, 1982}";
+		};
+	};
+	52EBD29910F07BD4000C9DC2 /* ko */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1296}}";
+			sepNavSelRange = "{2167, 2}";
+			sepNavVisRange = "{507, 1666}";
+		};
 	};
 	8D57630D048677EA00EA77CD /* Spotlight Importer */ = {
 		activeExec = 0;
-	};
-	96400BAD10E06E4E00052C98 /* LICENSE */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 861}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1080}";
-		};
 	};
 	9665B8BE1012B6BB007F87B4 /* lemon */ = {
 		activeExec = 0;
@@ -251,9 +382,9 @@
 	};
 	9665B8C71012B6E2007F87B4 /* lemon.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {772, 93708}}";
-			sepNavSelRange = "{26772, 0}";
-			sepNavVisRange = "{26613, 590}";
+			sepNavIntBoundsRect = "{{0, 0}, {983, 93689}}";
+			sepNavSelRange = "{129882, 0}";
+			sepNavVisRange = "{129465, 392}";
 		};
 	};
 	9665BA121012F4D2007F87B4 /* SGFImporter.h */ = {
@@ -265,16 +396,71 @@
 	};
 	9665BA131012F4D2007F87B4 /* SGFImporter.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 7467}}";
-			sepNavSelRange = "{1936, 0}";
-			sepNavVisRange = "{1286, 1095}";
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 7068}}";
+			sepNavSelRange = "{2134, 0}";
+			sepNavVisRange = "{10413, 1930}";
 		};
+	};
+	968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1752, 1311}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1046, 1834}";
+		};
+	};
+	968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1702, 941}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1986}";
+		};
+	};
+	968B494310F05CEF005DC450 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1712, 4579}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{8470, 2043}";
+		};
+	};
+	968B494510F05CFE005DC450 /* InfoPlist.strings */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{87, 0}";
+			sepNavVisRange = "{0, 197}";
+		};
+	};
+	968B495010F05D93005DC450 /* QuickLook Generator */ = {
+		activeExec = 0;
+	};
+	968B49FA10F12D1A005DC450 /* SGFPreviewViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1241}";
+		};
+	};
+	968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1227}";
+		};
+	};
+	968B4B0510F140DC005DC450 /* All */ = {
+		activeExec = 0;
 	};
 	96BB9CC810E0842600F46049 /* Readme.md */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 861}}";
-			sepNavSelRange = "{130, 0}";
-			sepNavVisRange = "{0, 1045}";
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 941}}";
+			sepNavSelRange = "{596, 0}";
+			sepNavVisRange = "{0, 1468}";
+		};
+	};
+	C88FB7DB0674470F006EBB30 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1558, 1254}}";
+			sepNavSelRange = "{10, 0}";
+			sepNavVisRange = "{0, 2166}";
 		};
 	};
 }
