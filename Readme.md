@@ -2,6 +2,15 @@
 
 ## Version history
 
+* 1.3.1:
+	* Added OSX installer package
+	
+    * Added several more attrs to QuickLook preview generator, and
+	made some other minor improvements.
+	
+	* Added French lang descriptions to custom SL attrs
+	(Thank you Kirk McElhearn!)
+    
 * 1.3:
     * Added a QuickLook preview generator.
     
