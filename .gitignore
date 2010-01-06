@@ -9,3 +9,5 @@ build/
 sgf/sgfparse.c
 sgf/sgfparse.h
 sgf/sgfparse.out
+
+*.pkg
