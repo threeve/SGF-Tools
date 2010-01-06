@@ -23,7 +23,6 @@
 
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
-		520F868310E1766000E6C4BB /* ABOUT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868010E1766000E6C4BB /* ABOUT.txt */; };
 		520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
 		520F868510E1766000E6C4BB /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
@@ -86,14 +85,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D57630D048677EA00EA77CD /* Spotlight Importer */;
+			remoteGlobalIDString = 8D57630D048677EA00EA77CD;
 			remoteInfo = "Spotlight Importer";
 		};
 		968B4B0A10F140E2005DC450 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 968B495010F05D93005DC450 /* QuickLook Generator */;
+			remoteGlobalIDString = 968B495010F05D93005DC450;
 			remoteInfo = "QuickLook Generator";
 		};
 /* End PBXContainerItemProxy section */
@@ -116,9 +115,10 @@
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
-		520F868010E1766000E6C4BB /* ABOUT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ABOUT.txt; sourceTree = "<group>"; };
 		520F868110E1766000E6C4BB /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS.txt; sourceTree = "<group>"; };
 		520F868210E1766000E6C4BB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		52AF338910F4A6DE00E5E671 /* postinstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall.sh; sourceTree = "<group>"; };
+		52AF338B10F4B42E00E5E671 /* ABOUT.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ABOUT.rtf; sourceTree = "<group>"; };
 		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
 		52D8BC6910DECD040026CAF5 /* johnVsGnu.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = johnVsGnu.sgf; path = testfiles/johnVsGnu.sgf; sourceTree = "<group>"; };
 		52D8BC6A10DECD040026CAF5 /* test.sgf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.sgf; path = testfiles/test.sgf; sourceTree = "<group>"; };
@@ -226,6 +226,7 @@
 		08FB77AFFE84173DC02AAC07 /* SpotlightImporter */ = {
 			isa = PBXGroup;
 			children = (
+				52AF338910F4A6DE00E5E671 /* postinstall.sh */,
 				2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */,
 				8D576317048677EA00EA77CD /* Info.plist */,
 				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
@@ -251,8 +252,8 @@
 		52D8BBD510DDE5460026CAF5 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				52AF338B10F4B42E00E5E671 /* ABOUT.rtf */,
 				52EBD25110F0572E000C9DC2 /* TODO.txt */,
-				520F868010E1766000E6C4BB /* ABOUT.txt */,
 				520F868110E1766000E6C4BB /* AUTHORS.txt */,
 				520F868210E1766000E6C4BB /* LICENSE.txt */,
 				52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */,
@@ -431,7 +432,6 @@
 				8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */,
 				52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */,
 				52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */,
-				520F868310E1766000E6C4BB /* ABOUT.txt in Resources */,
 				520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */,
 				520F868510E1766000E6C4BB /* LICENSE.txt in Resources */,
 			);
