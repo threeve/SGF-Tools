@@ -1,7 +1,8 @@
 # General
 
-* create installer
 * create custom sgf search/view app
+* improve installer to allow user to decided whether to install for
+	all users (as it does now), or just themselves. (into ~/Library etc.)
 
 ~~~~~~~~~~~~~~~~~~~~
 # Spotlight importer
