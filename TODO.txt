@@ -10,7 +10,7 @@
 # Spotlight importer
 
 * add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
-* replace parser w/Arno's reference code
+* replace parser w/Arno's reference code? or maybe not...
 * add calculated # moves attr
 
 ~~~~~~~~~~~~~~~~~~~~~
