@@ -1,4 +1,4 @@
-# See the ABOUT.txt file for the project description and brief directions for installation/use.
+# See the ABOUT.rtf file for the project description and brief directions for installation/use.
 
 ## Version history
 
