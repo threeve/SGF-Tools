@@ -18,4 +18,6 @@
 
 * possibly add "---" or some other mark(s) to empty player & other fields?
 * create quicklook thumbnail generator
+* parse file if metadata not available
+
 
