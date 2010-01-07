@@ -2,6 +2,10 @@
 
 ## Version history
 
+* 1.3.3:
+    * Fixed bug in the Spotlight importer that caused very slow
+	and/or failed processing of large SGF collection files.
+	
 * 1.3.2:
     * Localize QuickLook preview generator
 	
