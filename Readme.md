@@ -9,7 +9,7 @@
     * Added 9 language localization string files using translations
 	kindly supplied by Anders Kierulf (maker of the wonderful SmartGo
 	software). Some are only partially translated.  Help with missing 
-	translations & other languages welcomed!
+	translations, descriptions, & other languages welcomed!
 	
 * 1.2.3: 
     * Fixed bug that intermittently caused files to be only partially
