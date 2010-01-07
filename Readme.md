@@ -45,7 +45,7 @@
     * Replaced call to deprecated stringWithCString:length: in do_property()
     (I hate seeing warnings for a good build)
  
-    * Added Winner & Loser attrs derrived from the RE PW PB props as
+    * Added Winner & Loser attrs derived from the RE PW PB props as
     suggested by Anders.
  
     * Fixed memory leaks in do_property() & appendString:forKey:
