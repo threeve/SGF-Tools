@@ -55,8 +55,8 @@ void *do_property(sgf_parser *p, const char *name, size_t length)
 	// we really need to think carefully about how to properly handle 
 	// different encodings
 
-	NSString *property = [[NSString alloc] initWithCString:name encoding:NSASCIIStringEncoding];
-    [imp doProperty:[property substringToIndex:length]];
+    NSString *property = [[NSString alloc] initWithBytes:name length:length encoding:NSASCIIStringEncoding];
+    [imp doProperty:property];
 	[property release];
 
     return NULL;
