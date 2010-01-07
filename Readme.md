@@ -2,6 +2,10 @@
 
 ## Version history
 
+* 1.3.4:
+	* Changed the Spotlight importer to only store the first PC
+	(place) property.
+
 * 1.3.3:
     * Fixed bug in the Spotlight importer that caused very slow
 	and/or failed processing of large SGF collection files.

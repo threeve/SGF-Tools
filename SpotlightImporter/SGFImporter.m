@@ -255,7 +255,7 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     }
 	else if ([@"PC" isEqualToString:self.currentProperty])
     {
-        [self appendString:value forKey:(NSString*)kMDItemNamedLocation];
+        [self setStringOnce:value forKey:(NSString*)kMDItemNamedLocation];
     }
     else if ([@"PW" isEqualToString:self.currentProperty])
 	{ 
