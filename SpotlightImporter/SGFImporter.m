@@ -178,9 +178,8 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 - (void) determineWinnerAndLoser
 {
 	// If the Winner attr hasn't already been set, then
-	// if the Result, White Player, and Black Player 
-	// fields have all been set then determine &
-	// store the Winner & Loser attrs
+	//	 if the Result, White Player, and Black Player fields have all been set then
+	//		determine & store the Winner & Loser attrs
 	
 	if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_winner"])
 	{
