@@ -129,6 +129,37 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     self.currentProperty = propertyName;
 }
 
+- (unsigned) getGameCount;
+{
+	NSNumber *games = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_numgames"];
+	
+	if (!games)
+	{
+		return 0;
+	}
+	else 
+	{
+		return [games integerValue];
+	}
+	
+}
+
+- (void) incGameCount;
+{
+	unsigned games = [self getGameCount] + 1;
+	
+	[self.attributes setObject:[NSNumber numberWithInteger:games] forKey:@"com_breedingpinetrees_sgf_numgames"];
+	
+	if (1 == games) 
+	{
+		[self.attributes setObject:[NSNumber numberWithBool:FALSE] forKey:@"com_breedingpinetrees_sgf_iscollection"];
+	}
+	else if (2 == games) 
+	{
+		[self.attributes setObject:[NSNumber numberWithBool:TRUE] forKey:@"com_breedingpinetrees_sgf_iscollection"];
+	}
+}
+
 - (void) setNumberOnce:(NSString *)value forKey:(NSString *)key
 {	// only stores the first value for key
 	if (![self.attributes objectForKey:key])
@@ -363,6 +394,9 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	}
 	else if ([@"GM" isEqualToString:self.currentProperty])
     {
+		// yeah, relying on the GM property to count games isn't foolproof 
+		[self incGameCount];
+		
 		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_gametype"])
 		{
 			NSString *name;
