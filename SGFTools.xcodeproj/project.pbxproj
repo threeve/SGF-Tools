@@ -25,6 +25,8 @@
 		2C05A19C06CAA52B00D84F6F /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */; };
 		520F868410E1766000E6C4BB /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
 		520F868510E1766000E6C4BB /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
+		52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
+		52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
 		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		52E40FB010F50D2800397B83 /* SGFPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E40FAF10F50D2800397B83 /* SGFPreview.xib */; };
@@ -456,6 +458,8 @@
 			files = (
 				52E40FB010F50D2800397B83 /* SGFPreview.xib in Resources */,
 				52E41E5810F79D1A0035FD79 /* SGFCollectionPreview.xib in Resources */,
+				52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */,
+				52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
