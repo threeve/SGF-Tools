@@ -141,7 +141,6 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	{
 		return [games integerValue];
 	}
-	
 }
 
 - (void) incGameCount;
@@ -159,6 +158,39 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 		[self.attributes setObject:[NSNumber numberWithBool:TRUE] forKey:@"com_breedingpinetrees_sgf_iscollection"];
 	}
 }
+
+
+- (unsigned) getMoves;
+{
+	NSNumber *moves = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_moves"];
+	
+	if (!moves)
+	{
+		return 0;
+	}
+	else 
+	{
+		return [moves integerValue];
+	}
+}
+
+- (void) incMoves;
+{	// only counts moves for the first game in a file
+	unsigned games = [self getGameCount];
+	
+	if (games > 1)
+	{
+		return;
+	}
+	else if (0 == games)
+	{
+		[self incGameCount];
+	}
+	
+	unsigned moves = [self getMoves] + 1;
+	[self.attributes setObject:[NSNumber numberWithInteger:moves] forKey:@"com_breedingpinetrees_sgf_moves"];
+}
+
 
 - (void) setNumberOnce:(NSString *)value forKey:(NSString *)key
 {	// only stores the first value for key
@@ -411,6 +443,17 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 			}
 			
 			[self.attributes setObject:name forKey:@"com_breedingpinetrees_sgf_gametype"];
+		}
+    }
+	else if ([@"B" isEqualToString:self.currentProperty] || [@"W" isEqualToString:self.currentProperty])
+    {
+		// NOTE: all non-pass moves for the first game will be counted, even those in variations! :(
+		//		 To fix this we need to have the parser let us know when it sees the first ")" char
+		//		 not in a comment.
+		
+		if ([value length] > 0) // don't count pass moves
+		{
+			[self incMoves];
 		}
     }
 	

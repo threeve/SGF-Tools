@@ -9,15 +9,14 @@
 ~~~~~~~~~~~~~~~~~~~~
 # Spotlight importer
 
-* add Rank Number (able to use > < searches etc.) & Rank Scale (pro, dan, kyu) attrs
+* add str coded board position attr for use by ql gen to create thumbnail
 * replace parser w/Arno's reference code? or maybe not...
-* add calculated # moves attr
 
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
-* possibly add "---" or some other mark(s) to empty player & other fields?
 * create quicklook thumbnail generator
+* possibly add "---" or some other mark(s) to empty player & other fields?
 * parse file if metadata not available
 
 

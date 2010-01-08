@@ -3,8 +3,8 @@
 ## Version history
 
 * 1.3.5:
-	* Added # moves & games to the Spotlight importer
-
+	* Added calculated # moves, # games, & Collection attrs
+		
 * 1.3.4:
 	* Changed the Spotlight importer to only store the first PC
 	(place) property.
