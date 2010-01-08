@@ -28,6 +28,7 @@
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
 		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		52E40FB010F50D2800397B83 /* SGFPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E40FAF10F50D2800397B83 /* SGFPreview.xib */; };
+		52E41E5810F79D1A0035FD79 /* SGFCollectionPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E41E5610F79D1A0035FD79 /* SGFCollectionPreview.xib */; };
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
@@ -131,6 +132,8 @@
 		52E40FB810F50E4B00397B83 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_TW; path = zh_TW.lproj/SGFPreview.xib; sourceTree = "<group>"; };
 		52E40FB910F50E4D00397B83 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/SGFPreview.xib; sourceTree = "<group>"; };
 		52E40FBA10F50E5100397B83 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/SGFPreview.xib; sourceTree = "<group>"; };
+		52E41E5710F79D1A0035FD79 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = QuickLookGenerator/English.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52E41E7810F7A2A30035FD79 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = QuickLookGenerator/French.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52EBD25110F0572E000C9DC2 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		52EBD28710F076CA000C9DC2 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/schema.strings; sourceTree = "<group>"; };
 		52EBD28810F076D5000C9DC2 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/schema.strings; sourceTree = "<group>"; };
@@ -307,6 +310,7 @@
 				968B494210F05CEF005DC450 /* Info.plist */,
 				968B494410F05CFE005DC450 /* InfoPlist.strings */,
 				968B494310F05CEF005DC450 /* main.c */,
+				52E41E5610F79D1A0035FD79 /* SGFCollectionPreview.xib */,
 				52E40FAF10F50D2800397B83 /* SGFPreview.xib */,
 				968B49FA10F12D1A005DC450 /* SGFPreviewViewController.h */,
 				968B49FB10F12D1A005DC450 /* SGFPreviewViewController.m */,
@@ -451,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E40FB010F50D2800397B83 /* SGFPreview.xib in Resources */,
+				52E41E5810F79D1A0035FD79 /* SGFCollectionPreview.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +539,16 @@
 				52E40FBA10F50E5100397B83 /* sv */,
 			);
 			name = SGFPreview.xib;
+			sourceTree = "<group>";
+		};
+		52E41E5610F79D1A0035FD79 /* SGFCollectionPreview.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52E41E5710F79D1A0035FD79 /* English */,
+				52E41E7810F7A2A30035FD79 /* French */,
+			);
+			name = SGFCollectionPreview.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8D5B49A704867FD3000E48DA /* InfoPlist.strings */ = {

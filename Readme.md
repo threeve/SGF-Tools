@@ -4,6 +4,8 @@
 
 * 1.3.5:
 	* Added calculated # moves, # games, & Collection attrs
+	
+	* Added special QuickLook preview for collection files
 		
 * 1.3.4:
 	* Changed the Spotlight importer to only store the first PC

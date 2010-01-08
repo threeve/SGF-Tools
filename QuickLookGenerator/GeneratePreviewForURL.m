@@ -42,7 +42,18 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     CFRelease(attributeNames);
     CFRelease(metadata);
     
-    SGFPreviewViewController *sgfPreview = [[SGFPreviewViewController alloc] initWithNibName:@"SGFPreview" bundle:[NSBundle bundleForClass:[SGFPreviewViewController class]]];
+	BOOL isCollection = [[attributes objectForKey:@"com_breedingpinetrees_sgf_iscollection"] boolValue];
+	NSString *qlnib;
+	if (isCollection) 
+	{
+		qlnib = @"SGFCollectionPreview";
+	}
+	else 
+	{
+		qlnib = @"SGFPreview";
+	}
+
+    SGFPreviewViewController *sgfPreview = [[SGFPreviewViewController alloc] initWithNibName:qlnib bundle:[NSBundle bundleForClass:[SGFPreviewViewController class]]];
     [sgfPreview setRepresentedObject:attributes];
 
     NSRect viewBounds = [[sgfPreview view] bounds];
