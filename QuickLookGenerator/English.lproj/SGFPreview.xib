@@ -274,10 +274,44 @@
 							<reference key="NSTextColor" ref="751451193"/>
 						</object>
 					</object>
-					<object class="NSTextField" id="150012473">
+					<object class="NSTextField" id="967373698">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{119, 229}, {386, 17}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="887603298">
+							<int key="NSCellFlags">68288064</int>
+							<int key="NSCellFlags2">272630784</int>
+							<string key="NSContents">moves</string>
+							<reference key="NSSupport" ref="401248723"/>
+							<reference key="NSControlView" ref="967373698"/>
+							<reference key="NSBackgroundColor" ref="540574707"/>
+							<reference key="NSTextColor" ref="751451193"/>
+						</object>
+					</object>
+					<object class="NSTextField" id="661235388">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{17, 229}, {100, 17}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<int key="NSViewLayerContentsRedrawPolicy">2</int>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="683829986">
+							<int key="NSCellFlags">68288064</int>
+							<int key="NSCellFlags2">71304192</int>
+							<string key="NSContents">Moves:</string>
+							<reference key="NSSupport" ref="401248723"/>
+							<reference key="NSControlView" ref="661235388"/>
+							<reference key="NSBackgroundColor" ref="540574707"/>
+							<reference key="NSTextColor" ref="751451193"/>
+						</object>
+					</object>
+					<object class="NSTextField" id="150012473">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">266</int>
+						<string key="NSFrame">{{119, 254}, {386, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -294,7 +328,7 @@
 					<object class="NSTextField" id="885420808">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{119, 254}, {386, 17}}</string>
+						<string key="NSFrame">{{119, 279}, {386, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -345,7 +379,7 @@
 					<object class="NSTextField" id="1007589233">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 229}, {100, 17}}</string>
+						<string key="NSFrame">{{17, 254}, {100, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -362,7 +396,7 @@
 					<object class="NSTextField" id="882076294">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 254}, {100, 17}}</string>
+						<string key="NSFrame">{{17, 279}, {100, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -379,7 +413,7 @@
 					<object class="NSTextField" id="782693450">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{54, 282}, {451, 22}}</string>
+						<string key="NSFrame">{{54, 307}, {451, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -400,7 +434,7 @@
 					<object class="NSTextField" id="922007753">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{54, 312}, {451, 22}}</string>
+						<string key="NSFrame">{{54, 337}, {451, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -417,7 +451,7 @@
 					<object class="NSTextField" id="574960759">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 311}, {35, 22}}</string>
+						<string key="NSFrame">{{17, 336}, {35, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -450,7 +484,7 @@
 					<object class="NSTextField" id="289463584">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 281}, {35, 22}}</string>
+						<string key="NSFrame">{{17, 306}, {35, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -481,7 +515,7 @@
 					<object class="NSTextField" id="848923017">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{19, 309}, {35, 22}}</string>
+						<string key="NSFrame">{{19, 334}, {35, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -508,7 +542,7 @@
 					<object class="NSTextField" id="738715340">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{19, 279}, {35, 22}}</string>
+						<string key="NSFrame">{{19, 304}, {35, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -535,7 +569,7 @@
 					<object class="NSTextField" id="446640726">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{54, 312}, {451, 22}}</string>
+						<string key="NSFrame">{{54, 337}, {451, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -552,7 +586,7 @@
 					<object class="NSTextField" id="475444619">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{54, 282}, {451, 22}}</string>
+						<string key="NSFrame">{{54, 307}, {451, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<bool key="NSEnabled">YES</bool>
@@ -567,7 +601,7 @@
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{522, 354}</string>
+				<string key="NSFrameSize">{522, 379}</string>
 				<reference key="NSSuperview"/>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSClassName">NSView</string>
@@ -588,6 +622,7 @@
 					<string>com_breedingpinetrees_sgf_ruleset</string>
 					<string>com_breedingpinetrees_sgf_round</string>
 					<string>kMDItemNamedLocation</string>
+					<string>com_breedingpinetrees_sgf_moves</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
@@ -1262,6 +1297,222 @@
 					</object>
 					<int key="connectionID">161</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_dateplayed</string>
+						<reference key="source" ref="661711493"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="661711493"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_dateplayed</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_dateplayed</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">164</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_dateplayed</string>
+						<reference key="source" ref="479601444"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="479601444"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_dateplayed</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_dateplayed</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">167</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_event</string>
+						<reference key="source" ref="959606388"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="959606388"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_event</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_event</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">170</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_event</string>
+						<reference key="source" ref="209709868"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="209709868"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_event</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_event</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">173</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_komi</string>
+						<reference key="source" ref="150012473"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="150012473"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_komi</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_komi</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">176</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_komi</string>
+						<reference key="source" ref="1007589233"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1007589233"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_komi</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_komi</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">179</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_moves</string>
+						<reference key="source" ref="661235388"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="661235388"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_moves</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_moves</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">187</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_moves</string>
+						<reference key="source" ref="967373698"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="967373698"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_moves</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_moves</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">188</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selection.com_breedingpinetrees_sgf_moves</string>
+						<reference key="source" ref="967373698"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="967373698"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">value: selection.com_breedingpinetrees_sgf_moves</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_moves</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">189</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_result</string>
+						<reference key="source" ref="885420808"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="885420808"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_result</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_result</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">192</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: selection.com_breedingpinetrees_sgf_result</string>
+						<reference key="source" ref="882076294"/>
+						<reference key="destination" ref="788680190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="882076294"/>
+							<reference key="NSDestination" ref="788680190"/>
+							<string key="NSLabel">hidden: selection.com_breedingpinetrees_sgf_result</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">selection.com_breedingpinetrees_sgf_result</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">195</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1296,31 +1547,33 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1007589233"/>
-							<reference ref="959606388"/>
-							<reference ref="479601444"/>
-							<reference ref="363858578"/>
-							<reference ref="728706888"/>
 							<reference ref="882076294"/>
 							<reference ref="885420808"/>
 							<reference ref="150012473"/>
-							<reference ref="661711493"/>
-							<reference ref="223795380"/>
-							<reference ref="925232365"/>
 							<reference ref="922007753"/>
 							<reference ref="782693450"/>
 							<reference ref="738715340"/>
 							<reference ref="848923017"/>
 							<reference ref="574960759"/>
 							<reference ref="289463584"/>
-							<reference ref="209709868"/>
+							<reference ref="446640726"/>
+							<reference ref="475444619"/>
+							<reference ref="661235388"/>
+							<reference ref="967373698"/>
+							<reference ref="959606388"/>
+							<reference ref="479601444"/>
 							<reference ref="35490222"/>
 							<reference ref="502423844"/>
+							<reference ref="209709868"/>
+							<reference ref="661711493"/>
+							<reference ref="363858578"/>
+							<reference ref="223795380"/>
+							<reference ref="728706888"/>
+							<reference ref="925232365"/>
 							<reference ref="1007221515"/>
 							<reference ref="673937591"/>
 							<reference ref="820840015"/>
 							<reference ref="831175456"/>
-							<reference ref="446640726"/>
-							<reference ref="475444619"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1703,6 +1956,34 @@
 						<reference key="object" ref="541480876"/>
 						<reference key="parent" ref="446640726"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">180</int>
+						<reference key="object" ref="661235388"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="683829986"/>
+						</object>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">181</int>
+						<reference key="object" ref="967373698"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="887603298"/>
+						</object>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">182</int>
+						<reference key="object" ref="887603298"/>
+						<reference key="parent" ref="967373698"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">183</int>
+						<reference key="object" ref="683829986"/>
+						<reference key="parent" ref="661235388"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1742,6 +2023,10 @@
 					<string>139.IBPluginDependency</string>
 					<string>140.IBPluginDependency</string>
 					<string>141.IBPluginDependency</string>
+					<string>180.IBPluginDependency</string>
+					<string>181.IBPluginDependency</string>
+					<string>182.IBPluginDependency</string>
+					<string>183.IBPluginDependency</string>
 					<string>31.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
@@ -1792,7 +2077,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{75, 359}, {522, 354}}</string>
+					<string>{{75, 334}, {522, 379}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1813,6 +2098,10 @@
 					</object>
 					<real value="-3"/>
 					<real value="3"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1908,7 +2197,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">161</int>
+			<int key="maxID">195</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1999,7 +2288,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../SGFTools.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../SGFTools.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>
