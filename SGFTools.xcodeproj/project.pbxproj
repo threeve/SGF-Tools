@@ -120,6 +120,14 @@
 		2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
 		520F868110E1766000E6C4BB /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS.txt; sourceTree = "<group>"; };
 		520F868210E1766000E6C4BB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		52993D3E10F8750300914AC9 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = QuickLookGenerator/German.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D3F10F8750800914AC9 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = QuickLookGenerator/Japanese.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4010F8751000914AC9 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = QuickLookGenerator/zh_CN.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4110F8751600914AC9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = QuickLookGenerator/ko.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4210F8751900914AC9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = QuickLookGenerator/pl.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4310F8751D00914AC9 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_TW; path = QuickLookGenerator/zh_TW.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4410F8751F00914AC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = QuickLookGenerator/ru.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		52993D4510F8752300914AC9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = QuickLookGenerator/sv.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52AF338910F4A6DE00E5E671 /* postinstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall.sh; sourceTree = "<group>"; };
 		52AF338B10F4B42E00E5E671 /* ABOUT.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ABOUT.rtf; sourceTree = "<group>"; };
 		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
@@ -549,7 +557,15 @@
 			isa = PBXVariantGroup;
 			children = (
 				52E41E5710F79D1A0035FD79 /* English */,
+				52993D4010F8751000914AC9 /* zh_CN */,
+				52993D3E10F8750300914AC9 /* German */,
 				52E41E7810F7A2A30035FD79 /* French */,
+				52993D3F10F8750800914AC9 /* Japanese */,
+				52993D4110F8751600914AC9 /* ko */,
+				52993D4210F8751900914AC9 /* pl */,
+				52993D4310F8751D00914AC9 /* zh_TW */,
+				52993D4410F8751F00914AC9 /* ru */,
+				52993D4510F8752300914AC9 /* sv */,
 			);
 			name = SGFCollectionPreview.xib;
 			path = ..;

@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.3.6:
+	* Added xlations for most new attrs
+
 * 1.3.5:
 	* Added calculated # moves, # games, & Collection attrs
 	
