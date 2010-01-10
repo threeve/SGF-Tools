@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.3.7:
+	* Added xlations for Collection attr to importer
+
 * 1.3.6:
 	* Added xlations for most new attrs
 
