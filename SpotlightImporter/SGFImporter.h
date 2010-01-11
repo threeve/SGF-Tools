@@ -29,6 +29,11 @@
     NSMutableData *_data;
     NSMutableDictionary *_attributes;
     NSString *_currentProperty;
+	
+	unsigned games;
+	unsigned moves;
+	int treeLevel;
+    BOOL inVariation;
 }
 
 @property (assign) NSStringEncoding textEncoding;

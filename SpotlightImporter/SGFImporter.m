@@ -45,6 +45,8 @@ static int MAX_GAMENAME = (sizeof(gameName)/sizeof(NSString *));
 - (void)doProperty:(NSString*)propertyName;
 - (void)doPushValue;
 - (void)doData:(const char *)data length:(size_t)length;
+- (void)doBeginTree;
+- (void)doEndTree;
 @end
 
 
@@ -74,6 +76,21 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     [imp doData:data length:length];
 }
 
+void *do_begin_tree(sgf_parser *p)
+{
+    SGFImporter *imp = p->context;
+    [imp doBeginTree];
+    
+    return NULL;
+}
+
+void do_end_tree(sgf_parser *p, void *tree)
+{
+    SGFImporter *imp = p->context;
+    [imp doEndTree];
+}
+
+
 
 @implementation SGFImporter
 
@@ -86,6 +103,11 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 
 - (id)initWithAttributeDictionary:(NSMutableDictionary*)attributes;
 {
+	games = 0;
+	moves = 0;
+	treeLevel = 0;
+    inVariation = FALSE;
+	
     if ((self = [super init]))
     {
         self.attributes = attributes;
@@ -115,6 +137,8 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     parser.property = do_property;              /*sgf_property_handler property;*/
     parser.property_push_value = do_push_value; /*sgf_property_push_value property_push_value;*/
     parser.property_data = do_data;             /*sgf_property_data_handler property_data;*/
+    parser.begin_tree = do_begin_tree;
+    parser.end_tree = do_end_tree;
     parser.context = self;
     sgf_parser *p = &parser;
     sgf_parser_init(p);
@@ -129,23 +153,10 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     self.currentProperty = propertyName;
 }
 
-- (unsigned) getGameCount;
-{
-	NSNumber *games = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_numgames"];
-	
-	if (!games)
-	{
-		return 0;
-	}
-	else 
-	{
-		return [games integerValue];
-	}
-}
 
 - (void) incGameCount;
 {
-	unsigned games = [self getGameCount] + 1;
+	games++;
 	
 	[self.attributes setObject:[NSNumber numberWithInteger:games] forKey:@"com_breedingpinetrees_sgf_numgames"];
 	
@@ -160,34 +171,14 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 }
 
 
-- (unsigned) getMoves;
-{
-	NSNumber *moves = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_moves"];
-	
-	if (!moves)
-	{
-		return 0;
-	}
-	else 
-	{
-		return [moves integerValue];
-	}
-}
-
 - (void) incMoves;
 {	// only counts moves for the first game in a file
-	unsigned games = [self getGameCount];
-	
 	if (games > 1)
 	{
 		return;
 	}
-	else if (0 == games)
-	{
-		[self incGameCount];
-	}
 	
-	unsigned moves = [self getMoves] + 1;
+	moves++;
 	[self.attributes setObject:[NSNumber numberWithInteger:moves] forKey:@"com_breedingpinetrees_sgf_moves"];
 }
 
@@ -426,9 +417,6 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 	}
 	else if ([@"GM" isEqualToString:self.currentProperty])
     {
-		// yeah, relying on the GM property to count games isn't foolproof 
-		[self incGameCount];
-		
 		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_gametype"])
 		{
 			NSString *name;
@@ -447,11 +435,7 @@ void do_data(sgf_parser *p, const char *data, size_t length)
     }
 	else if ([@"B" isEqualToString:self.currentProperty] || [@"W" isEqualToString:self.currentProperty])
     {
-		// NOTE: all non-pass moves for the first game will be counted, even those in variations! :(
-		//		 To fix this we need to have the parser let us know when it sees the first ")" char
-		//		 not in a comment.
-		
-		if ([value length] > 0) // don't count pass moves
+        if (!inVariation && ([value length] > 0)) // don't count variations or pass moves
 		{
 			[self incMoves];
 		}
@@ -464,5 +448,25 @@ void do_data(sgf_parser *p, const char *data, size_t length)
 {
     [self.data appendBytes:data length:length];
 }
+
+
+
+- (void)doBeginTree;
+{
+	treeLevel++;
+	if (1 == treeLevel) 
+	{
+		[self incGameCount];
+        inVariation = FALSE;
+	}
+}
+
+
+- (void)doEndTree;
+{
+	treeLevel--;
+    inVariation = TRUE;
+}
+
 
 @end

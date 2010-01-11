@@ -15,13 +15,13 @@
 # Spotlight importer
 
 * add str coded board position attr for use by ql gen to create thumbnail
-* replace parser w/Arno's reference code? or maybe not...
+* replace parser w/simple self-contained module that doesn't require non-Xcode
+	tools
 
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
 * create quicklook thumbnail generator
-* possibly add "---" or some other mark(s) to empty player & other fields?
 * parse file if metadata not available
 
 

@@ -3,6 +3,9 @@
 ## Version history
 
 * 1.3.7:
+    * Fix # of moves code to only count non-variation moves
+
+* 1.3.7:
 	* Added xlations for Collection attr to importer
 
 * 1.3.6:
