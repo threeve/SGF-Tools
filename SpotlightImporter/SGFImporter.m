@@ -465,7 +465,15 @@ void do_end_tree(sgf_parser *p, void *tree)
 - (void)doEndTree;
 {
 	treeLevel--;
-    inVariation = TRUE;
+    
+    if (!inVariation)
+    {
+        // save com_breedingpinetrees_sgf_boardposition
+        
+        
+        
+        inVariation = TRUE;
+    }
 }
 
 

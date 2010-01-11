@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.4
+    * QuickLook Board Position Thumbnail Generator
+
 * 1.3.8:
     * Fix # of moves code to only count non-variation moves
 

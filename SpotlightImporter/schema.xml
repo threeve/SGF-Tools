@@ -28,6 +28,7 @@
         <attribute name="com_breedingpinetrees_sgf_iscollection" multivalued="false" type="CFBoolean"/>
         <attribute name="com_breedingpinetrees_sgf_numgames" multivalued="false" type="CFNumber"/>
         <attribute name="com_breedingpinetrees_sgf_moves" multivalued="false" type="CFNumber"/>
+        <attribute name="com_breedingpinetrees_sgf_boardposition" multivalued="false" nosearch="true" type="CFString"/>
     </attributes>
     <types>
         <type name="com.breedingpinetrees.sgf">
@@ -71,6 +72,7 @@
 			com_breedingpinetrees_sgf_iscollection
 			com_breedingpinetrees_sgf_numgames
 			com_breedingpinetrees_sgf_moves
+            com_breedingpinetrees_sgf_boardposition
             </allattrs>
 
             <displayattrs>
