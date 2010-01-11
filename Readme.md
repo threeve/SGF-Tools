@@ -2,7 +2,7 @@
 
 ## Version history
 
-* 1.3.7:
+* 1.3.8:
     * Fix # of moves code to only count non-variation moves
 
 * 1.3.7:
