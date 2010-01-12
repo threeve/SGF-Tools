@@ -30,21 +30,37 @@
 #import <Cocoa/Cocoa.h>
 
 #define MAX_BOARD_SIZE 52
+#define DEFAULT_BOARD_SIZE 19
 
 
-enum bpointTag {
+enum stoneColorTag {
     empty=0, white, black
 };
-typedef enum bpointTag bpoint;
+typedef enum stoneColorTag stoneColor;
 
 
 @interface SGFGoban : NSObject {
     unsigned size;
-    bpoint board[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
+    stoneColor board[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
+    
+    unsigned whitePrisoners, blackPrisoners;
 }
 
 @property (assign, nonatomic) unsigned size;
 
 - (void) resetBoard;
+
++ (unsigned) getRowOf:(NSString*)location;
++ (unsigned) getColOf:(NSString*)location;
++ (NSString*) getLocationForRow:(unsigned)row Col:(unsigned)col;
+
+- (stoneColor) getStoneAt:(NSString*)location;
+
+// set stone at location without checking for captures, etc.
+// use for handicap stones, setup, etc.
+- (void) setStone:(stoneColor)stone at:(NSString*)location;
+
+// play stone at location, then check for captures & suicide
+- (void) playStone:(stoneColor)stone at:(NSString*)location;
 
 @end
