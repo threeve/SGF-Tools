@@ -1,6 +1,6 @@
 // The MIT License
 //
-// Copyright (c) 2009 SGF Tools Developers
+// Copyright (c) 2009,2010 SGF Tools Developers
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,11 @@
 #import "SGFImporter.h"
 
 #include "sgf_parser.h"
+
+
+unsigned const normalBoardSizeFuseki = 50;
+unsigned const smallBoardSizeFuseki = 30;
+unsigned const tinyBoardSizeFuseki = 20;
 
 
 NSString *gameName[] = {
@@ -98,6 +103,7 @@ void do_end_tree(sgf_parser *p, void *tree)
 @synthesize textEncoding = _textEncoding;
 @synthesize attributes = _attributes;
 @synthesize currentProperty = _currentProperty;
+@synthesize goban;
 
 
 
@@ -113,6 +119,7 @@ void do_end_tree(sgf_parser *p, void *tree)
         self.attributes = attributes;
         self.textEncoding = NSISOLatin1StringEncoding;
         self.data = [NSMutableData data];
+        self.goban = [[SGFGoban alloc] init];
     }
     return self;
 }
@@ -122,6 +129,7 @@ void do_end_tree(sgf_parser *p, void *tree)
     self.attributes = nil;
     self.data = nil;
     self.currentProperty = nil;
+    self.goban = nil;
     [super dealloc];
 }
 
@@ -184,16 +192,16 @@ void do_end_tree(sgf_parser *p, void *tree)
 
 
 - (void) setNumberOnce:(NSString *)value forKey:(NSString *)key
-{	// only stores the first value for key
-	if (![self.attributes objectForKey:key])
+{	// only stores the first value for key, and only for first game
+	if ((games < 2) && ![self.attributes objectForKey:key])
 	{
 		[self.attributes setObject:[NSNumber numberWithDouble:[value doubleValue]] forKey:key];
 	}
 }
 
 - (void) setStringOnce:(NSString *)value forKey:(NSString *)key
-{	// only stores the first value for key
-	if (![self.attributes objectForKey:key])
+{	// only stores the first value for key, and only for first game
+	if ((games < 2) && ![self.attributes objectForKey:key])
 	{
 		[self.attributes setObject:value forKey:key];
 	}
@@ -231,11 +239,11 @@ void do_end_tree(sgf_parser *p, void *tree)
 
 - (void) determineWinnerAndLoser
 {
-	// If the Winner attr hasn't already been set, then
+	// If first game && the Winner attr hasn't already been set, then
 	//	 if the Result, White Player, and Black Player fields have all been set then
 	//		determine & store the Winner & Loser attrs
 	
-	if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_winner"])
+	if ((games < 2) && ![self.attributes objectForKey:@"com_breedingpinetrees_sgf_winner"])
 	{
 		NSMutableString *result = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_result"];
 		NSMutableString *white = [self.attributes objectForKey:@"com_breedingpinetrees_sgf_white"];
@@ -265,27 +273,15 @@ void do_end_tree(sgf_parser *p, void *tree)
 {
     NSString *value = [[[NSString alloc] initWithData:self.data encoding:self.textEncoding] autorelease];
 	
-    if ([@"US" isEqualToString:self.currentProperty])
-    {
-		[self addString:value toArrayforKey:(NSString*)kMDItemAuthors];
-    }
-    else if ([@"CA" isEqualToString:self.currentProperty])
+    if ([@"CA" isEqualToString:self.currentProperty])
     {
         if ([@"UTF-8" isEqualToString:value])
             self.textEncoding = NSUTF8StringEncoding;
         // TODO other encodings
     }
-    else if ([@"FF" isEqualToString:self.currentProperty])
+    else if ([@"US" isEqualToString:self.currentProperty])
     {
-        [self setStringOnce:value forKey:(NSString*)kMDItemVersion];
-    }
-    else if ([@"AP" isEqualToString:self.currentProperty])
-    {
-        [self setStringOnce:value forKey:(NSString*)kMDItemCreator];
-    }
-    else if ([@"CP" isEqualToString:self.currentProperty])
-    {
-        [self setStringOnce:value forKey:(NSString*)kMDItemCopyright];
+		[self addString:value toArrayforKey:(NSString*)kMDItemAuthors];
     }
     else if ([@"GN" isEqualToString:self.currentProperty])
     {
@@ -306,10 +302,6 @@ void do_end_tree(sgf_parser *p, void *tree)
         [self appendString:value forKey:(NSString*)kMDItemCoverage];
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_event"];
     }
-	else if ([@"PC" isEqualToString:self.currentProperty])
-    {
-        [self setStringOnce:value forKey:(NSString*)kMDItemNamedLocation];
-    }
     else if ([@"PW" isEqualToString:self.currentProperty])
 	{ 
 		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
@@ -321,14 +313,6 @@ void do_end_tree(sgf_parser *p, void *tree)
 		[self addString:value toArrayforKey:(NSString*)kMDItemParticipants];
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_black"];
 		[self determineWinnerAndLoser];
-	}
-    else if ([@"WR" isEqualToString:self.currentProperty])
-	{ 
-        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_whiterank"];
-	}
-    else if ([@"BR" isEqualToString:self.currentProperty])
-	{ 
-        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_blackrank"];
 	}
     else if ([@"BT" isEqualToString:self.currentProperty])
 	{ 
@@ -360,7 +344,7 @@ void do_end_tree(sgf_parser *p, void *tree)
 	else if ([@"DT" isEqualToString:self.currentProperty])
     {
         [self appendString:value forKey:(NSString*)kMDItemTextContent];
-		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_dateplayed"])
+		if (games < 2)  // only set for first game
 		{
 			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 			value = [value stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]];
@@ -379,6 +363,58 @@ void do_end_tree(sgf_parser *p, void *tree)
 			}
 		}
     }
+	else if ([@"GM" isEqualToString:self.currentProperty])
+    {
+		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_gametype"])
+		{
+			NSString *name;
+			int gm = [value intValue] - 1;
+			if ((gm >= 0) && (gm < MAX_GAMENAME)) 
+			{
+				name = gameName[gm];
+			}
+			else
+			{
+				name = @"unknown";
+			}
+			
+			[self.attributes setObject:name forKey:@"com_breedingpinetrees_sgf_gametype"];
+		}
+    }
+    
+    if (games > 1) 
+    {
+        [self.data setLength:0];
+        return;
+    }
+    
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // The following attrs are only set for the first game in an SGF file...
+    
+    if ([@"FF" isEqualToString:self.currentProperty])
+    {
+        [self setStringOnce:value forKey:(NSString*)kMDItemVersion];
+    }
+    else if ([@"AP" isEqualToString:self.currentProperty])
+    {
+        [self setStringOnce:value forKey:(NSString*)kMDItemCreator];
+    }
+    else if ([@"CP" isEqualToString:self.currentProperty])
+    {
+        [self setStringOnce:value forKey:(NSString*)kMDItemCopyright];
+    }
+	else if ([@"PC" isEqualToString:self.currentProperty])
+    {
+        [self setStringOnce:value forKey:(NSString*)kMDItemNamedLocation];
+    }
+    else if ([@"WR" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_whiterank"];
+	}
+    else if ([@"BR" isEqualToString:self.currentProperty])
+	{ 
+        [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_blackrank"];
+	}
     else if ([@"ON" isEqualToString:self.currentProperty])
 	{ 
         [self setStringOnce:value forKey:@"com_breedingpinetrees_sgf_opening"];
@@ -414,25 +450,8 @@ void do_end_tree(sgf_parser *p, void *tree)
     else if ([@"SZ" isEqualToString:self.currentProperty])
 	{ 
         [self setNumberOnce:value forKey:@"com_breedingpinetrees_sgf_size"];
+        goban.size = [value integerValue];
 	}
-	else if ([@"GM" isEqualToString:self.currentProperty])
-    {
-		if (![self.attributes objectForKey:@"com_breedingpinetrees_sgf_gametype"])
-		{
-			NSString *name;
-			int gm = [value intValue] - 1;
-			if ((gm >= 0) && (gm < MAX_GAMENAME)) 
-			{
-				name = gameName[gm];
-			}
-			else
-			{
-				name = @"unknown";
-			}
-			
-			[self.attributes setObject:name forKey:@"com_breedingpinetrees_sgf_gametype"];
-		}
-    }
 	else if ([@"B" isEqualToString:self.currentProperty] || [@"W" isEqualToString:self.currentProperty])
     {
         if (!inVariation && ([value length] > 0)) // don't count variations or pass moves
@@ -442,7 +461,8 @@ void do_end_tree(sgf_parser *p, void *tree)
     }
 	
     [self.data setLength:0];
-}
+}  // doPushValue
+
 
 - (void)doData:(const char *)data length:(size_t)length;
 {

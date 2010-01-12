@@ -1,6 +1,6 @@
 // The MIT License
 //
-// Copyright (c) 2009 SGF Tools Developers
+// Copyright (c) 2009,2010 SGF Tools Developers
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "SGFGoban.h"
+
 
 @interface SGFImporter : NSObject
 {
@@ -30,16 +32,20 @@
     NSMutableDictionary *_attributes;
     NSString *_currentProperty;
 	
+@private
 	unsigned games;
 	unsigned moves;
 	int treeLevel;
     BOOL inVariation;
+    
+    SGFGoban *goban;
 }
 
 @property (assign) NSStringEncoding textEncoding;
 @property (retain) NSMutableData *data;
 @property (retain) NSMutableDictionary *attributes;
 @property (copy) NSString *currentProperty;
+@property (retain) SGFGoban *goban;
 
 - (id)initWithAttributeDictionary:(NSMutableDictionary*)attributes;
 
