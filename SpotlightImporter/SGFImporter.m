@@ -26,7 +26,9 @@
 #include "sgf_parser.h"
 
 
+unsigned const normalBoardSize = 19;
 unsigned const normalBoardSizeFuseki = 50;
+unsigned const smallBoardSize = 13;
 unsigned const smallBoardSizeFuseki = 30;
 unsigned const tinyBoardSizeFuseki = 20;
 
@@ -454,11 +456,27 @@ void do_end_tree(sgf_parser *p, void *tree)
 	}
 	else if ([@"B" isEqualToString:self.currentProperty] || [@"W" isEqualToString:self.currentProperty])
     {
-        if (!inVariation && ([value length] > 0)) // don't count variations or pass moves
-		{
+        if (!inVariation && ([value length] > 0) && 
+            (![@"tt" isEqualToString:value] || (goban.size > 19))) 
+		{ // don't count variations or pass moves
 			[self incMoves];
+            
+            if (((goban.size >= normalBoardSize) && (moves <= normalBoardSizeFuseki)) ||
+                ((goban.size >= smallBoardSize) && (moves <= smallBoardSizeFuseki)) ||
+                (moves <= tinyBoardSizeFuseki))
+            {   // only create fuseki position, not entire game
+                [goban playStone:([@"B" isEqualToString:self.currentProperty] ? black : white) at:value];
+            }
 		}
     }
+    else if ([@"AB" isEqualToString:self.currentProperty])
+	{ // add black stones (probably for handicap)
+        [goban setStone:black at:value];
+	}
+    else if ([@"AW" isEqualToString:self.currentProperty])
+	{ // add white stones (shouldn't normally occur but...)
+        [goban setStone:white at:value];
+	}
 	
     [self.data setLength:0];
 }  // doPushValue
@@ -474,6 +492,7 @@ void do_end_tree(sgf_parser *p, void *tree)
 - (void)doBeginTree;
 {
 	treeLevel++;
+
 	if (1 == treeLevel) 
 	{
 		[self incGameCount];
@@ -481,17 +500,13 @@ void do_end_tree(sgf_parser *p, void *tree)
 	}
 }
 
-
 - (void)doEndTree;
 {
 	treeLevel--;
     
     if (!inVariation)
     {
-        // save com_breedingpinetrees_sgf_boardposition
-        
-        
-        
+        [self setStringOnce:[goban getPositionString] forKey:@"com_breedingpinetrees_sgf_boardposition"];
         inVariation = TRUE;
     }
 }

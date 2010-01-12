@@ -152,5 +152,9 @@
 }
 
 
+- (NSString*) getPositionString {
+    return [NSString string];
+}
+
 
 @end

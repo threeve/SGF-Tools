@@ -63,4 +63,7 @@ typedef enum stoneColorTag stoneColor;
 // play stone at location, then check for captures & suicide
 - (void) playStone:(stoneColor)stone at:(NSString*)location;
 
+// returns special string used for encoding current board position
+- (NSString*) getPositionString;
+
 @end
