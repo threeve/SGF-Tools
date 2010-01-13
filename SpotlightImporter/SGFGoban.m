@@ -40,6 +40,8 @@
 
 @implementation SGFGoban
 
+@synthesize whitePrisoners, blackPrisoners;
+
 
 - (void) resetBoard 
 {
@@ -107,7 +109,7 @@
     loc[0] = [SGFGoban valToChar:row];
     loc[1] = [SGFGoban valToChar:col];
     
-    return [[NSString alloc] initWithCharacters:loc length:2];
+    return [[[NSString alloc] initWithCharacters:loc length:2] autorelease];
 }
 
 
@@ -150,10 +152,24 @@
     //   then remove it and add to prisoners
     
 }
-
-
+ 
+// create string that describes the current board position:
+// "[board size],[black stone locations],[white stone locations]"
 - (NSString*) getPositionString {
-    return [NSString string];
+    NSMutableString *blackstr = [[[NSMutableString alloc] init] autorelease];
+    NSMutableString *whitestr = [[[NSMutableString alloc] init] autorelease];
+    
+    for (unsigned row=0; row < size; row++)
+        for (unsigned col=0; col < size; col++) {
+            if (black == board[row][col]) {
+                [blackstr appendFormat:@"%c%c", [SGFGoban valToChar:row], [SGFGoban valToChar:col]];
+            } else if (white == board[row][col]) {
+                [whitestr appendFormat:@"%c%c", [SGFGoban valToChar:row], [SGFGoban valToChar:col]];
+            }
+        }
+    
+    NSMutableString *postr = [[[NSMutableString alloc] initWithFormat:@"%u,%@,%@", size, blackstr, whitestr] autorelease];
+    return postr;
 }
 
 

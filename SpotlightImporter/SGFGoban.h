@@ -47,6 +47,7 @@ typedef enum stoneColorTag stoneColor;
 }
 
 @property (assign, nonatomic) unsigned size;
+@property (readonly) unsigned whitePrisoners, blackPrisoners;
 
 - (void) resetBoard;
 
