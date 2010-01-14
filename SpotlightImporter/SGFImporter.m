@@ -506,7 +506,9 @@ void do_end_tree(sgf_parser *p, void *tree)
     
     if (!inVariation)
     {
-        [self setStringOnce:[goban getPositionString] forKey:@"com_breedingpinetrees_sgf_boardposition"];
+        if (games < 2) {
+            [self setStringOnce:[goban getPositionString] forKey:@"com_breedingpinetrees_sgf_boardposition"];
+        }
         inVariation = TRUE;
     }
 }
