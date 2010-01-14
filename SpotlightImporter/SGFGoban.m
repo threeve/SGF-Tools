@@ -150,7 +150,7 @@
         return;
     }
     
-    board[row][col] = stone;
+    board[col][row] = stone;
     
     // if any adjacent enemy groups have no liberties,
     //   then remove them and add to prisoners
