@@ -21,7 +21,7 @@
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -29,10 +29,14 @@
 
 #import "SGFGoban.h"
 
+#define LOC_RANGE_SPLIT (MAX_BOARD_SIZE/2)
+
 
 @interface SGFGoban () 
 + (unsigned) charToVal:(unichar)c;
 + (unichar) valToChar:(unsigned)v;
+
+- (void) removeIfDeadGroup:(stoneColor)stone Row:(unsigned)row Col:(unsigned)col;
 @end
 
 
@@ -67,17 +71,17 @@
     if (('a' <= c) && (c <= 'z')) {
         return c - 'a';
     } else if (('A' <= c) && (c <= 'Z')) {
-        return c - 'A' + 26;
+        return c - 'A' + LOC_RANGE_SPLIT;
     }
     
     return MAX_BOARD_SIZE;
 }
 
 + (unichar) valToChar:(unsigned)v {
-    if (v < (MAX_BOARD_SIZE/2)) {
-        return 'a'+v;
+    if (v < LOC_RANGE_SPLIT) {
+        return 'a' + v;
     } else if (v < MAX_BOARD_SIZE) {
-        return 'A'+v;
+        return 'A' + (v - LOC_RANGE_SPLIT);
     }
 
     return '!'; // return bogus char for illegal v
@@ -85,29 +89,25 @@
 
 + (unsigned) getRowOf:(NSString*)location {    
     if ([location length] < 2) {
-        return 0;
-    }
-    
-    return [self charToVal:[location characterAtIndex:0]];
-}
-
-+ (unsigned) getColOf:(NSString*)location {
-    if ([location length] < 2) {
-        return 0;
+        return MAX_BOARD_SIZE;
     }
     
     return [self charToVal:[location characterAtIndex:1]];
 }
 
-
-+ (NSString*) getLocationForRow:(unsigned)row Col:(unsigned)col {
-    if ((row >= MAX_BOARD_SIZE) || (col >= MAX_BOARD_SIZE)) {
-        return [NSString string];
++ (unsigned) getColOf:(NSString*)location {
+    if ([location length] < 2) {
+        return MAX_BOARD_SIZE;
     }
     
+    return [self charToVal:[location characterAtIndex:0]];
+}
+
+
++ (NSString*) getLocationForRow:(unsigned)row Col:(unsigned)col {
     unichar loc[2];
-    loc[0] = [SGFGoban valToChar:row];
-    loc[1] = [SGFGoban valToChar:col];
+    loc[0] = [SGFGoban valToChar:col];
+    loc[1] = [SGFGoban valToChar:row];
     
     return [[[NSString alloc] initWithCharacters:loc length:2] autorelease];
 }
@@ -121,13 +121,20 @@
         return empty;
     }
     
-    return board[row][col];
+    return board[col][row];
 }
 
 
 
 - (void) setStone:(stoneColor)stone at:(NSString*)location {
-    board[[SGFGoban getRowOf:location]][[SGFGoban getColOf:location]] = stone;
+    unsigned row = [SGFGoban getRowOf:location];
+    unsigned col = [SGFGoban getColOf:location];
+    
+    if ((row >= size) || (col >= size)) {
+        return;
+    }
+    
+    board[col][row] = stone;
 }
 
 
@@ -147,24 +154,32 @@
     
     // if any adjacent enemy groups have no liberties,
     //   then remove them and add to prisoners
+    stoneColor enemy = (white == stone) ? black : white;
+    
+    [self removeIfDeadGroup:enemy Row:row Col:col-1];
+    [self removeIfDeadGroup:enemy Row:row Col:col+1];
+    [self removeIfDeadGroup:enemy Row:row-1 Col:col];
+    [self removeIfDeadGroup:enemy Row:row+1 Col:col];
     
     // if the group at location has no liberties (suicide),
     //   then remove it and add to prisoners
-    
+    [self removeIfDeadGroup:stone Row:row Col:col];
 }
  
+
+
 // create string that describes the current board position:
 // "[board size],[black stone locations],[white stone locations]"
 - (NSString*) getPositionString {
     NSMutableString *blackstr = [[[NSMutableString alloc] init] autorelease];
     NSMutableString *whitestr = [[[NSMutableString alloc] init] autorelease];
     
-    for (unsigned row=0; row < size; row++)
-        for (unsigned col=0; col < size; col++) {
-            if (black == board[row][col]) {
-                [blackstr appendFormat:@"%c%c", [SGFGoban valToChar:row], [SGFGoban valToChar:col]];
-            } else if (white == board[row][col]) {
-                [whitestr appendFormat:@"%c%c", [SGFGoban valToChar:row], [SGFGoban valToChar:col]];
+    for (unsigned col=0; col < size; col++)
+        for (unsigned row=0; row < size; row++) {
+            if (black == board[col][row]) {
+                [blackstr appendString:[SGFGoban getLocationForRow:row Col:col]];
+            } else if (white == board[col][row]) {
+                [whitestr appendString:[SGFGoban getLocationForRow:row Col:col]];
             }
         }
     
@@ -172,5 +187,9 @@
     return postr;
 }
 
+
+- (void) removeIfDeadGroup:(stoneColor)stone Row:(unsigned)row Col:(unsigned)col {
+    
+}
 
 @end
