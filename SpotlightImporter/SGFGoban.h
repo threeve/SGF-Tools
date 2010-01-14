@@ -37,11 +37,13 @@ enum stoneColorTag {
     empty=0, white, black
 };
 typedef enum stoneColorTag stoneColor;
+typedef stoneColor boardAry[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
 
+#define ENEMY(stone) ((white == stone) ? black : white)
 
 @interface SGFGoban : NSObject {
     unsigned size;
-    stoneColor board[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
+    boardAry board;
     
     unsigned whitePrisoners, blackPrisoners;
 }

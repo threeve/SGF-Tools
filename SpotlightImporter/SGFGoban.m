@@ -37,6 +37,8 @@
 + (unichar) valToChar:(unsigned)v;
 
 - (void) removeIfDeadGroup:(stoneColor)stone Row:(unsigned)row Col:(unsigned)col;
+- (BOOL) isDead:(stoneColor)stone X:(unsigned)x Y:(unsigned)y group:(boardAry)map;
+- (void) captureGroup:(boardAry)map;
 @end
 
 
@@ -126,6 +128,27 @@
 
 
 
+// create string that describes the current board position:
+// "[board size],[black stone locations],[white stone locations]"
+- (NSString*) getPositionString {
+    NSMutableString *blackstr = [[[NSMutableString alloc] init] autorelease];
+    NSMutableString *whitestr = [[[NSMutableString alloc] init] autorelease];
+    
+    for (unsigned col=0; col < size; col++)
+        for (unsigned row=0; row < size; row++) {
+            if (black == board[col][row]) {
+                [blackstr appendString:[SGFGoban getLocationForRow:row Col:col]];
+            } else if (white == board[col][row]) {
+                [whitestr appendString:[SGFGoban getLocationForRow:row Col:col]];
+            }
+        }
+    
+    NSMutableString *postr = [[[NSMutableString alloc] initWithFormat:@"%u,%@,%@", size, blackstr, whitestr] autorelease];
+    return postr;
+}
+
+
+
 - (void) setStone:(stoneColor)stone at:(NSString*)location {
     unsigned row = [SGFGoban getRowOf:location];
     unsigned col = [SGFGoban getColOf:location];
@@ -154,12 +177,10 @@
     
     // if any adjacent enemy groups have no liberties,
     //   then remove them and add to prisoners
-    stoneColor enemy = (white == stone) ? black : white;
-    
-    [self removeIfDeadGroup:enemy Row:row Col:col-1];
-    [self removeIfDeadGroup:enemy Row:row Col:col+1];
-    [self removeIfDeadGroup:enemy Row:row-1 Col:col];
-    [self removeIfDeadGroup:enemy Row:row+1 Col:col];
+    [self removeIfDeadGroup:ENEMY(stone) Row:row Col:col-1];
+    [self removeIfDeadGroup:ENEMY(stone) Row:row Col:col+1];
+    [self removeIfDeadGroup:ENEMY(stone) Row:row-1 Col:col];
+    [self removeIfDeadGroup:ENEMY(stone) Row:row+1 Col:col];
     
     // if the group at location has no liberties (suicide),
     //   then remove it and add to prisoners
@@ -167,29 +188,80 @@
 }
  
 
+- (void) removeIfDeadGroup:(stoneColor)stone Row:(unsigned)row Col:(unsigned)col {
+    if ((row >= size) || (col >= size)) {
+        return; // beyond the fringe
+    }
 
-// create string that describes the current board position:
-// "[board size],[black stone locations],[white stone locations]"
-- (NSString*) getPositionString {
-    NSMutableString *blackstr = [[[NSMutableString alloc] init] autorelease];
-    NSMutableString *whitestr = [[[NSMutableString alloc] init] autorelease];
+    if (board[col][row] != stone) {
+        return; // these are not the stones you're looking for ;-)
+    }
     
-    for (unsigned col=0; col < size; col++)
-        for (unsigned row=0; row < size; row++) {
-            if (black == board[col][row]) {
-                [blackstr appendString:[SGFGoban getLocationForRow:row Col:col]];
-            } else if (white == board[col][row]) {
-                [whitestr appendString:[SGFGoban getLocationForRow:row Col:col]];
+    // keep a map of group members for use during removal/capture
+    // if group is dead
+    boardAry map;
+    memset(map, empty, sizeof(map));
+    
+    if ([self isDead:stone X:col Y:row group:map]) {
+        [self captureGroup:map];
+    }
+}
+
+
+// recursively determine whether the stone group including location(x,y) is dead.
+// members of the group are marked in the corresponding location in map.
+- (BOOL) isDead:(stoneColor)stone X:(unsigned)x Y:(unsigned)y group:(boardAry)map {
+    if (empty == board[x][y]) {
+        return FALSE;   // found liberty
+    }
+    
+    if ((board[x][y] == ENEMY(stone)) || (map[x][y] == stone)) {
+        return TRUE;    // keep looking for liberty
+    }
+    
+    map[x][y] = stone;  // add group member
+    
+    // recursively check surrounding points...
+    if (x > 0) {
+        if (![self isDead:stone X:x-1 Y:y group:map]) {
+            return FALSE;   // he's not quite dead
+        }
+    }
+
+    if (x < (size-1)) {
+        if (![self isDead:stone X:x+1 Y:y group:map]) {
+            return FALSE;
+        }
+    }
+    
+    if (y > 0) {
+        if (![self isDead:stone X:x Y:y-1 group:map]) {
+            return FALSE;
+        }
+    }
+    
+    if (y < (size-1)) {
+        if (![self isDead:stone X:x Y:y+1 group:map]) {
+            return FALSE;
+        }
+    }
+    
+    return TRUE;    // he's dead Jim
+}
+
+
+- (void) captureGroup:(boardAry)map {    
+    for (unsigned x=0; x < size; x++)
+        for (unsigned y=0; y < size; y++) {
+            if (white == map[x][y]) {
+                board[x][y] = empty;
+                whitePrisoners++;
+            } else if (black == map[x][y]) {
+                board[x][y] = empty;
+                blackPrisoners++;
             }
         }
-    
-    NSMutableString *postr = [[[NSMutableString alloc] initWithFormat:@"%u,%@,%@", size, blackstr, whitestr] autorelease];
-    return postr;
 }
 
-
-- (void) removeIfDeadGroup:(stoneColor)stone Row:(unsigned)row Col:(unsigned)col {
-    
-}
 
 @end
