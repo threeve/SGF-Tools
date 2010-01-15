@@ -44,8 +44,12 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
         return noErr;
     }
     
-    BOOL isCollection = [(NSNumber*) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_iscollection")) boolValue];
+    NSNumber *sgf_iscollection = (NSNumber*) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_iscollection"));
+    BOOL isCollection = [sgf_iscollection boolValue];
+    [sgf_iscollection release];
+    
     NSString *boardPosition = (NSString *) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_boardposition"));
+    [boardPosition autorelease];
     CFRelease(metadata);
     
     CGContextRef cgContext = QLThumbnailRequestCreateContext(thumbnail, maxSize, false, NULL);
