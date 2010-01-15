@@ -52,19 +52,16 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
     NSLog(@"pos=\"%@\"\n", boardPosition);
     
     CGContextRef cgContext = QLThumbnailRequestCreateContext(thumbnail, maxSize, false, NULL);
+    if (cgContext) {
+        NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
+        if (context) {
+            // draw some shit
+        }
+        
+        QLThumbnailRequestFlushContext(thumbnail, cgContext);
+        CFRelease(cgContext);
+    }
     
-/*    
-    NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
-    [NSGraphicsContext saveGraphicsState];
-    [NSGraphicsContext setCurrentContext:context];
-    
-    [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
-    
-    [NSGraphicsContext restoreGraphicsState];
-    QLPreviewRequestFlushContext(preview, cgContext);
-*/ 
-    
-    CFRelease(cgContext);
     [pool drain];
     return noErr;
 }
