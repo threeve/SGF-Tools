@@ -126,7 +126,7 @@ void do_end_tree(sgf_parser *p, void *tree)
     return self;
 }
 
-- (void)dealloc;
+- (void)dealloc
 {
     self.attributes = nil;
     self.data = nil;
