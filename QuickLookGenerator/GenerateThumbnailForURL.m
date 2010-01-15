@@ -23,9 +23,9 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <CoreServices/CoreServices.h>
 #import <QuickLook/QuickLook.h>
-//#import <Quartz/Quartz.h>
-
 #import <Cocoa/Cocoa.h>
+
+#import "SGFDrawBoard.h"
 
 /* -----------------------------------------------------------------------------
     Generate a thumbnail for file
@@ -48,15 +48,15 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
     NSString *boardPosition = (NSString *) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_boardposition"));
     CFRelease(metadata);
     
-    NSLog(@"isCollection %u\n", isCollection);
-    NSLog(@"pos=\"%@\"\n", boardPosition);
-    
     CGContextRef cgContext = QLThumbnailRequestCreateContext(thumbnail, maxSize, false, NULL);
     if (cgContext) {
         NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
-        if (context) {
-            // draw some shit
+        
+        if (isCollection) {
+            // draw background that indicates file is a collection
         }
+        
+        [SGFDrawBoard drawPosition:boardPosition inContext:context];
         
         QLThumbnailRequestFlushContext(thumbnail, cgContext);
         CFRelease(cgContext);

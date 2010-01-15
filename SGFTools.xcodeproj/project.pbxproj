@@ -27,6 +27,7 @@
 		520F868510E1766000E6C4BB /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
 		52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
+		529B259A1100CCF100C1ABB9 /* SGFDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
 		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		52E0B79C10FC9A11001D4962 /* SGFGoban.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E0B79A10FC9A11001D4962 /* SGFGoban.h */; };
@@ -130,6 +131,8 @@
 		52993D4310F8751D00914AC9 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_TW; path = QuickLookGenerator/zh_TW.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52993D4410F8751F00914AC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = QuickLookGenerator/ru.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52993D4510F8752300914AC9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = QuickLookGenerator/sv.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
+		529B25981100CCF100C1ABB9 /* SGFDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFDrawBoard.h; sourceTree = "<group>"; };
+		529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFDrawBoard.m; sourceTree = "<group>"; };
 		52AF338910F4A6DE00E5E671 /* postinstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall.sh; sourceTree = "<group>"; };
 		52AF338B10F4B42E00E5E671 /* ABOUT.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ABOUT.rtf; sourceTree = "<group>"; };
 		52D8BBC210DDE3C00026CAF5 /* SGFimporter Prop-Attr Mapping.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "SGFimporter Prop-Attr Mapping.rtf"; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 		968B493F10F05CC4005DC450 /* QuickLookGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				529B25981100CCF100C1ABB9 /* SGFDrawBoard.h */,
+				529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */,
 				968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */,
 				968B494110F05CEF005DC450 /* GenerateThumbnailForURL.m */,
 				968B494210F05CEF005DC450 /* Info.plist */,
@@ -520,6 +525,7 @@
 				968B495910F05E20005DC450 /* GenerateThumbnailForURL.m in Sources */,
 				968B495A10F05E21005DC450 /* GeneratePreviewForURL.m in Sources */,
 				968B49FC10F12D1A005DC450 /* SGFPreviewViewController.m in Sources */,
+				529B259A1100CCF100C1ABB9 /* SGFDrawBoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
