@@ -70,4 +70,9 @@ typedef stoneColor boardAry[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
 // returns special string used for encoding current board position
 - (NSString*) getPositionString;
 
+// splits a position string into its component parts
+// returns TRUE if successful
++ (BOOL) getSize:(unsigned*)pboardSize blackStones:(NSString**)pblackStones whiteStones:(NSString**)pwhiteStones 
+      ofPosition:(NSString*)position;
+
 @end

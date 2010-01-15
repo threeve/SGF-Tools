@@ -149,6 +149,33 @@
 
 
 
++ (BOOL) getSize:(unsigned*)pboardSize blackStones:(NSString**)pblackStones whiteStones:(NSString**)pwhiteStones 
+      ofPosition:(NSString*)position {
+    if (!pboardSize || !pblackStones || !pwhiteStones) {
+        return FALSE;
+    }
+    
+    NSArray *parts = [position componentsSeparatedByString:@","];
+    if (3 != [parts count]) {
+        return FALSE;
+    }
+    
+    *pboardSize = [[parts objectAtIndex:0] unsignedIntValue];
+    if ((*pboardSize < 1) || (*pboardSize > MAX_BOARD_SIZE)) {
+        return FALSE;
+    }
+    
+    *pblackStones = [[[NSString alloc] initWithString:[parts objectAtIndex:1]] autorelease];
+    *pwhiteStones = [[[NSString alloc] initWithString:[parts objectAtIndex:2]] autorelease];
+    if (!(*pblackStones) || !(*pwhiteStones)) {
+        return FALSE;
+    }
+    
+    return TRUE;
+}
+
+
+
 - (void) setStone:(stoneColor)stone at:(NSString*)location {
     unsigned row = [SGFGoban getRowOf:location];
     unsigned col = [SGFGoban getColOf:location];
