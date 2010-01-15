@@ -160,7 +160,7 @@
         return FALSE;
     }
     
-    *pboardSize = [[parts objectAtIndex:0] unsignedIntValue];
+    *pboardSize = [[parts objectAtIndex:0] intValue];
     if ((*pboardSize < 1) || (*pboardSize > MAX_BOARD_SIZE)) {
         return FALSE;
     }
