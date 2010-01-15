@@ -14,7 +14,7 @@
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -33,8 +33,10 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
 
     MDItemRef metadata = MDItemCreateWithURL(NULL, url);
-    if (!metadata)
+    if (!metadata) {
+        [pool drain];
         return noErr;
+    }
     
     CFArrayRef attributeNames = MDItemCopyAttributeNames(metadata);
     NSDictionary *attributes = (NSDictionary*)MDItemCopyAttributes(metadata, attributeNames);
@@ -44,12 +46,10 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     
 	BOOL isCollection = [[attributes objectForKey:@"com_breedingpinetrees_sgf_iscollection"] boolValue];
 	NSString *qlnib;
-	if (isCollection) 
-	{
+	if (isCollection) {
 		qlnib = @"SGFCollectionPreview";
 	}
-	else 
-	{
+	else {
 		qlnib = @"SGFPreview";
 	}
 

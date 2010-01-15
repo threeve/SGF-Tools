@@ -14,15 +14,18 @@
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <CoreServices/CoreServices.h>
-#include <QuickLook/QuickLook.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CoreServices/CoreServices.h>
+#import <QuickLook/QuickLook.h>
+//#import <Quartz/Quartz.h>
+
+#import <Cocoa/Cocoa.h>
 
 /* -----------------------------------------------------------------------------
     Generate a thumbnail for file
@@ -30,11 +33,43 @@
    This function's job is to create thumbnail for designated file as fast as possible
    ----------------------------------------------------------------------------- */
 
-OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
+OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, 
+                                 CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
-//    #warning To complete your generator please implement the function GenerateThumbnailForURL in GenerateThumbnailForURL.c
+    NSAutoreleasePool *pool = [NSAutoreleasePool new];
+    
+    MDItemRef metadata = MDItemCreateWithURL(NULL, url);
+    if (!metadata) {
+        [pool drain];
+        return noErr;
+    }
+    
+    BOOL isCollection = [(NSNumber*) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_iscollection")) boolValue];
+    NSString *boardPosition = (NSString *) MDItemCopyAttribute(metadata, CFSTR("com_breedingpinetrees_sgf_boardposition"));
+    CFRelease(metadata);
+    
+    NSLog(@"isCollection %u\n", isCollection);
+    NSLog(@"pos=\"%@\"\n", boardPosition);
+    
+    CGContextRef cgContext = QLThumbnailRequestCreateContext(thumbnail, maxSize, false, NULL);
+    
+/*    
+    NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:context];
+    
+    [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
+    
+    [NSGraphicsContext restoreGraphicsState];
+    QLPreviewRequestFlushContext(preview, cgContext);
+*/ 
+    
+    CFRelease(cgContext);
+    [pool drain];
     return noErr;
 }
+
+
 
 void CancelThumbnailGeneration(void* thisInterface, QLThumbnailRequestRef thumbnail)
 {
