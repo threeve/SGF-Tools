@@ -28,6 +28,7 @@
 		52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
 		52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		529B259A1100CCF100C1ABB9 /* SGFDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */; };
+		529B25CF1100F9E400C1ABB9 /* SGFGoban.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0B79B10FC9A11001D4962 /* SGFGoban.m */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
 		52D8BD0E10DF1CE70026CAF5 /* schema.strings in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7E30674480E006EBB30 /* schema.strings */; };
 		52E0B79C10FC9A11001D4962 /* SGFGoban.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E0B79A10FC9A11001D4962 /* SGFGoban.h */; };
@@ -526,6 +527,7 @@
 				968B495A10F05E21005DC450 /* GeneratePreviewForURL.m in Sources */,
 				968B49FC10F12D1A005DC450 /* SGFPreviewViewController.m in Sources */,
 				529B259A1100CCF100C1ABB9 /* SGFDrawBoard.m in Sources */,
+				529B25CF1100F9E400C1ABB9 /* SGFGoban.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
