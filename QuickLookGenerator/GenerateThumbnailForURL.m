@@ -55,14 +55,22 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
     CGContextRef cgContext = QLThumbnailRequestCreateContext(thumbnail, maxSize, false, NULL);
     if (cgContext) {
         NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
-        
-        if (isCollection) {
-            // draw background that indicates file is a collection
+
+        if (context) {
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:context];
+            
+            if (isCollection) {
+                // draw background that indicates file is a collection
+            }
+            
+            SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
+            [board autorelease];
+            [board drawPosition:boardPosition];
+            
+            [NSGraphicsContext restoreGraphicsState];
+            QLThumbnailRequestFlushContext(thumbnail, cgContext);
         }
-        
-        [SGFDrawBoard drawPosition:boardPosition inContext:context];
-        
-        QLThumbnailRequestFlushContext(thumbnail, cgContext);
         CFRelease(cgContext);
     }
     

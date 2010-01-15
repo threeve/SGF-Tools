@@ -29,6 +29,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "SGFGoban.h"
 
 
 #define DEFAULT_BOARD_NSCOLOR [NSColor colorWithDeviceRed:0.947 green:0.613 blue:0.267 alpha:1.000]
@@ -36,9 +37,36 @@
 
 
 @interface SGFDrawBoard : NSObject {
-
+    unsigned size;
 }
 
-+ (void) drawPosition:(NSString*)position inContext:(NSGraphicsContext*)context;
-+ (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color;
+@property (assign, nonatomic) unsigned size;
+
+- (id)initWithBoardSize:(unsigned)newSize;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// The following drawXxxx functions expect the current graphics context to be a 
+// flipped coordinate space!
+
+// draw a complete game position (board, grid, stones)
+// position string must be in the format produced by [SGFGoban getPositionString]
+- (void) drawPosition:(NSString*)position;
+
+- (void) drawBoardColor:(NSColor*)color;
+- (void) drawGrid;
+
+// location is a 2 letter string that describes an intersection on the board in sgf style
+- (void) drawStoneAtLocation:(NSString*)location color:(NSColor*)color;
+- (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// location is a 2 letter string that describes an intersection on the board in sgf style
+// returns graphics coords for drawing
+- (NSPoint) getPointForLocation:(NSString*)location;
+
+// here x & y are board intersection coords, not graphics coords
+// returns graphics coords for drawing
+- (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y;
+
 @end

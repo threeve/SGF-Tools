@@ -27,61 +27,83 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "SGFGoban.h"
 #import "SGFDrawBoard.h"
 
 
-@interface SGFDrawBoard ()
-+ (NSPoint) getPointForLocation:(NSString*)location;
-+ (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y;
+@interface SGFDrawBoard ()  // for private funcs
 @end
 
 
 @implementation SGFDrawBoard
 
 
-+ (void) drawPosition:(NSString*)position inContext:(NSGraphicsContext*)context {
-    if (!context) {
-        return;
-    }
+- (unsigned) size {
+    return size;
+}
 
+- (void) setSize:(unsigned)newSize {
+    if ((newSize > 0) && (newSize <= MAX_BOARD_SIZE)) {
+        size = newSize;
+    }
+}
+
+
+- (id)initWithBoardSize:(unsigned)newSize {
+    if ((self = [super init]))
+    {
+        self.size = newSize;
+    }
+    return self;
+}
+
+
+- (void) drawPosition:(NSString*)position {
     unsigned boardSize;
     NSString *blackStones, *whiteStones;
     if (![SGFGoban getSize:&boardSize blackStones:&blackStones whiteStones:&whiteStones ofPosition:position]) {
         return;
     }
+    self.size = boardSize;
     
-    [NSGraphicsContext saveGraphicsState];
-    [NSGraphicsContext setCurrentContext:context];
-
     // draw board
+    [self drawBoardColor:DEFAULT_BOARD_NSCOLOR];
     
     // draw grid & hoshi
+    [self drawGrid];
         
     // draw stones
     for (unsigned loc=0; loc < [blackStones length]; loc +=2) {
-        [SGFDrawBoard drawStoneAtPoint:[SGFDrawBoard getPointForLocation:[blackStones substringWithRange:NSMakeRange(loc,2)]] 
-                                 color:[NSColor blackColor]];
+        [self drawStoneAtLocation:[blackStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor blackColor]];
     }
     
     for (unsigned loc=0; loc < [whiteStones length]; loc +=2) {
-        [SGFDrawBoard drawStoneAtPoint:[SGFDrawBoard getPointForLocation:[whiteStones substringWithRange:NSMakeRange(loc,2)]] 
-                                 color:[NSColor whiteColor]];
+        [self drawStoneAtLocation:[whiteStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor whiteColor]];
     }
-    
-    [NSGraphicsContext restoreGraphicsState];
 }
 
 
-+ (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
+- (void) drawStoneAtLocation:(NSString*)location color:(NSColor*)color {
+    [self drawStoneAtPoint:[self getPointForLocation:location] color:color];
+}
+
+- (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
     // FIX: draw
     
 }
 
 
-+ (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y {
-    CGFloat fx, fy;
+- (void) drawBoardColor:(NSColor*)color {
     
+}
+
+
+- (void) drawGrid {
+    
+}
+
+
+- (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y {
+    CGFloat fx, fy;
     // FIX: need to properly scale & offset these!!!
     fx = x;
     fy = y;
@@ -89,8 +111,8 @@
     return NSMakePoint(fx, fy);
 }
 
-+ (NSPoint) getPointForLocation:(NSString*)location {
-    return [SGFDrawBoard getPointForX:[SGFGoban getColOf:location] Y:[SGFGoban getRowOf:location]];
+- (NSPoint) getPointForLocation:(NSString*)location {
+    return [self getPointForX:[SGFGoban getColOf:location] Y:[SGFGoban getRowOf:location]];
 }
 
 
