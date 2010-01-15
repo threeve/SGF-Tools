@@ -28,7 +28,8 @@
 #import "SGFPreviewViewController.h"
 
 
-OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
+OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, 
+                               CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
 
@@ -54,24 +55,29 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 	}
 
     SGFPreviewViewController *sgfPreview = [[SGFPreviewViewController alloc] initWithNibName:qlnib bundle:[NSBundle bundleForClass:[SGFPreviewViewController class]]];
+    [sgfPreview autorelease];
     [sgfPreview setRepresentedObject:attributes];
 
     NSRect viewBounds = [[sgfPreview view] bounds];
     CGContextRef cgContext = QLPreviewRequestCreateContext(preview, NSSizeToCGSize(viewBounds.size), false, NULL);
-    NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
-    [NSGraphicsContext saveGraphicsState];
-    [NSGraphicsContext setCurrentContext:context];
-
-    [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
-
-    [sgfPreview release];
-    [NSGraphicsContext restoreGraphicsState];
-    QLPreviewRequestFlushContext(preview, cgContext);
-    CFRelease(cgContext);
-    [pool drain];
+    if (cgContext) {
+        NSGraphicsContext *context = [NSGraphicsContext graphicsContextWithGraphicsPort:(void*)cgContext flipped:YES];
+        if (context) {
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:context];
+            [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
+            [NSGraphicsContext restoreGraphicsState];
+        }
     
+        QLPreviewRequestFlushContext(preview, cgContext);
+        CFRelease(cgContext);
+    }
+    
+    [pool drain];
     return noErr;
 }
+
+
 
 void CancelPreviewGeneration(void* thisInterface, QLPreviewRequestRef preview)
 {
