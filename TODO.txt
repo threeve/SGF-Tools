@@ -20,6 +20,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
+* fix preview in column view (white text isn't visible)
 * parse file if metadata not available
 
 
