@@ -31,8 +31,10 @@
 
 #define DEFAULT_BOUNDS NSMakeRect(0.0, 0.0, 128.0, 128.0)
 #define BOARD_WIDTH (locationWidth*size)
+#define HOSHI_WIDTH 2.0
 
 @interface SGFDrawBoard ()  // for private funcs
+- (BOOL) isHoshiX:(unsigned)x Y:(unsigned)y;
 @end
 
 
@@ -118,11 +120,13 @@
     CGFloat locCenter = locationWidth / 2.0;
     CGFloat gridSize = locationWidth * (size - 1);
     
+    // draw outer box
     NSColor *gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.8];
     [gridColor set];
     [NSBezierPath setDefaultLineWidth:0.6];
     [NSBezierPath strokeRect:NSMakeRect(locCenter, locCenter, gridSize, gridSize)];
     
+    // draw inner lines
     NSBezierPath *gridPath = [NSBezierPath bezierPath];
     gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
     [gridColor set];
@@ -136,6 +140,84 @@
     }
     
     [gridPath stroke];
+    
+    // draw hoshi
+    NSRect hrect = NSMakeRect(0.0, 0.0, HOSHI_WIDTH, HOSHI_WIDTH);
+    
+    for (unsigned x=0; x < size; x++) {
+        for (unsigned y=0; y < size; y++) {
+            if ([self isHoshiX:x Y:y]) {
+                hrect.origin.x = ((CGFloat)x * locationWidth) + locCenter - (HOSHI_WIDTH/2);
+                hrect.origin.y = ((CGFloat)y * locationWidth) + locCenter - (HOSHI_WIDTH/2);
+                [[NSBezierPath bezierPathWithOvalInRect:hrect] fill]; 
+            }
+        }
+    }
+}
+
+
+
+- (BOOL) isHoshiX:(unsigned)x Y:(unsigned)y {
+    if ((size < 3) || (4 == size)) {
+        return FALSE;
+    }
+    
+    if (3 == size) {
+        if ((1 == x) && (1 == y)) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    
+    if (5 == size) {
+        if ((1 == x) && ((1 == y) || (3 == y))) {
+            return TRUE;
+        } else if ((2 == x) && (2 == y)) {
+            return TRUE;
+        } else if ((3 == x) && ((1 == y) || (3 == y))) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    
+    unsigned corner, middle = (size / 2);
+    if (size <= 11) {
+        corner = 2;
+    } else {
+        corner = 3;
+    }
+
+    // transform x & y to make comparison easier
+    if (x >= middle) {
+        x = size-x-1;
+    }
+    
+    if (y >= middle) {
+        y = size-y-1;
+    }
+    
+    if ((x == corner) && (y == corner)) {
+        return TRUE;
+    }
+    
+    // no center or side hoshi for even sizes
+    if (size%2 == 0) {
+        return FALSE;
+    }
+    
+    if (size < 12) {
+        if ((x == middle) && (y == middle)) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    
+    if (((x == corner) || (x == middle)) &&
+        ((y == corner) || (y == middle))) {
+        return TRUE;
+    }
+    
+    return FALSE;
 }
 
 
