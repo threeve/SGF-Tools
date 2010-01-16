@@ -71,7 +71,21 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
             [xform concat];
             
             if (isCollection) {
+                bounds.origin.x = 6.0;
+                bounds.origin.y = 6.0;
+                bounds.size.width -= 6.0;
+                bounds.size.height -= 6.0;
+                
                 // draw background that indicates file is a collection
+                [[DEFAULT_BOARD_NSCOLOR colorWithAlphaComponent:0.25] setFill];
+                [NSBezierPath fillRect:bounds];
+                bounds = NSOffsetRect(bounds, -2.0, -2.0);
+                [[DEFAULT_BOARD_NSCOLOR colorWithAlphaComponent:0.50] setFill];
+                [NSBezierPath fillRect:bounds];
+                bounds = NSOffsetRect(bounds, -2.0, -2.0);
+                [[DEFAULT_BOARD_NSCOLOR colorWithAlphaComponent:0.75] setFill];
+                [NSBezierPath fillRect:bounds];
+                bounds = NSOffsetRect(bounds, -2.0, -2.0);
             }
             
             SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
