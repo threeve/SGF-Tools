@@ -32,8 +32,7 @@
 #import "SGFGoban.h"
 
 
-#define DEFAULT_BOARD_NSCOLOR [NSColor colorWithDeviceRed:0.947 green:0.613 blue:0.267 alpha:1.000]
-
+#define DEFAULT_BOARD_NSCOLOR [NSColor colorWithDeviceRed:0.968 green:0.704 blue:0.382 alpha:1.000]
 
 
 @interface SGFDrawBoard : NSObject {

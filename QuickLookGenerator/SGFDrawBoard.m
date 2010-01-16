@@ -118,11 +118,14 @@
     CGFloat locCenter = locationWidth / 2.0;
     CGFloat gridSize = locationWidth * (size - 1);
     
-    [[NSColor blackColor] set];
+    NSColor *gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.8];
+    [gridColor set];
+    [NSBezierPath setDefaultLineWidth:0.6];
     [NSBezierPath strokeRect:NSMakeRect(locCenter, locCenter, gridSize, gridSize)];
     
     NSBezierPath *gridPath = [NSBezierPath bezierPath];
-    
+    gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
+    [gridColor set];
     
     for (CGFloat x=locCenter+locationWidth; x < gridSize; x += locationWidth) {
         [gridPath moveToPoint:NSMakePoint(x, locCenter)];
@@ -131,6 +134,7 @@
         [gridPath moveToPoint:NSMakePoint(locCenter, x)];
         [gridPath lineToPoint:NSMakePoint(locCenter+gridSize, x)];
     }
+    
     [gridPath stroke];
 }
 
