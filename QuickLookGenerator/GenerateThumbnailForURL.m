@@ -60,12 +60,23 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
             [NSGraphicsContext saveGraphicsState];
             [NSGraphicsContext setCurrentContext:context];
             
+            NSRect bounds;
+            bounds.origin = NSMakePoint(0.0, 0.0);
+            bounds.size = NSSizeFromCGSize(maxSize);
+            
+            // force flipped y coords by applying a transform
+            NSAffineTransform* xform = [NSAffineTransform transform];
+            [xform translateXBy:0.0 yBy:bounds.size.height];
+            [xform scaleXBy:1.0 yBy:-1.0];
+            [xform concat];
+            
             if (isCollection) {
                 // draw background that indicates file is a collection
             }
             
             SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
             [board autorelease];
+            [board setBounds:bounds];
             [board drawPosition:boardPosition];
             
             [NSGraphicsContext restoreGraphicsState];

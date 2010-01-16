@@ -29,6 +29,8 @@
 
 #import "SGFDrawBoard.h"
 
+#define DEFAULT_BOUNDS NSMakeRect(0.0, 0.0, 128.0, 128.0)
+#define BOARD_WIDTH (locationWidth*size)
 
 @interface SGFDrawBoard ()  // for private funcs
 @end
@@ -44,6 +46,7 @@
 - (void) setSize:(unsigned)newSize {
     if ((newSize > 0) && (newSize <= MAX_BOARD_SIZE)) {
         size = newSize;
+        locationWidth = bounds.size.height / (CGFloat)size;
     }
 }
 
@@ -52,9 +55,17 @@
     if ((self = [super init]))
     {
         self.size = newSize;
+        [self setBounds:DEFAULT_BOUNDS];
     }
     return self;
 }
+
+
+- (void) setBounds:(NSRect)newBounds {
+    bounds = newBounds;
+    locationWidth = bounds.size.height / (CGFloat)size;
+}
+
 
 
 - (void) drawPosition:(NSString*)position {
@@ -65,13 +76,9 @@
     }
     self.size = boardSize;
     
-    // draw board
     [self drawBoardColor:DEFAULT_BOARD_NSCOLOR];
-    
-    // draw grid & hoshi
     [self drawGrid];
         
-    // draw stones
     for (unsigned loc=0; loc < [blackStones length]; loc +=2) {
         [self drawStoneAtLocation:[blackStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor blackColor]];
     }
@@ -87,13 +94,19 @@
 }
 
 - (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
-    // FIX: draw
+    NSRect srect;
+    srect.origin = point;
+    srect.size.width = locationWidth;
+    srect.size.height = srect.size.width;
     
+    [color setFill];
+    [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
 }
 
 
 - (void) drawBoardColor:(NSColor*)color {
-    
+    [color setFill];
+    [NSBezierPath fillRect:NSMakeRect(0.0, 0.0, BOARD_WIDTH, BOARD_WIDTH)];
 }
 
 
@@ -105,8 +118,8 @@
 - (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y {
     CGFloat fx, fy;
     // FIX: need to properly scale & offset these!!!
-    fx = x;
-    fy = y;
+    fx = (CGFloat)x*locationWidth;
+    fy = (CGFloat)y*locationWidth;
     
     return NSMakePoint(fx, fy);
 }

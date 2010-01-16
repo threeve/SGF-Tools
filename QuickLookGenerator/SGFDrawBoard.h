@@ -37,12 +37,21 @@
 
 
 @interface SGFDrawBoard : NSObject {
+    // number of intersections on board in each dimention
     unsigned size;
+    
+    // bounds within which board will be drawn
+    NSRect bounds;
+    
+    // size of each intersection/location in graphic coords
+    CGFloat locationWidth;
 }
 
 @property (assign, nonatomic) unsigned size;
 
-- (id)initWithBoardSize:(unsigned)newSize;
+- (id) initWithBoardSize:(unsigned)newSize;
+
+- (void) setBounds:(NSRect)newBounds;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // The following drawXxxx functions expect the current graphics context to be a 
