@@ -64,7 +64,6 @@
 
 - (void) setSize:(unsigned)newSize {
     if ((newSize > 0) && (newSize <= MAX_BOARD_SIZE)) {
-        [self resetBoard];
         size = newSize;
     }
 }
