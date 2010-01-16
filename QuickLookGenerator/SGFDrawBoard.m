@@ -31,7 +31,7 @@
 
 #define DEFAULT_BOUNDS NSMakeRect(0.0, 0.0, 128.0, 128.0)
 #define BOARD_WIDTH (locationWidth*size)
-#define HOSHI_WIDTH 2.0
+#define HOSHI_WIDTH 3.0
 
 @interface SGFDrawBoard ()  // for private funcs
 - (BOOL) isHoshiX:(unsigned)x Y:(unsigned)y;
