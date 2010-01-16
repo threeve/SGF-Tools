@@ -79,11 +79,11 @@
     [self drawBoardColor:DEFAULT_BOARD_NSCOLOR];
     [self drawGrid];
         
-    for (unsigned loc=0; loc < [blackStones length]; loc +=2) {
+    for (unsigned loc=0; loc < [blackStones length]; loc += 2) {
         [self drawStoneAtLocation:[blackStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor blackColor]];
     }
-    
-    for (unsigned loc=0; loc < [whiteStones length]; loc +=2) {
+     
+    for (unsigned loc=0; loc < [whiteStones length]; loc += 2) {
         [self drawStoneAtLocation:[whiteStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor whiteColor]];
     }
 }
@@ -111,7 +111,27 @@
 
 
 - (void) drawGrid {
+    if (size < 2) {
+        return;
+    }
     
+    CGFloat locCenter = locationWidth / 2.0;
+    CGFloat gridSize = locationWidth * (size - 1);
+    
+    [[NSColor blackColor] set];
+    [NSBezierPath strokeRect:NSMakeRect(locCenter, locCenter, gridSize, gridSize)];
+    
+    NSBezierPath *gridPath = [NSBezierPath bezierPath];
+    
+    
+    for (CGFloat x=locCenter+locationWidth; x < gridSize; x += locationWidth) {
+        [gridPath moveToPoint:NSMakePoint(x, locCenter)];
+        [gridPath lineToPoint:NSMakePoint(x, locCenter+gridSize)];
+        
+        [gridPath moveToPoint:NSMakePoint(locCenter, x)];
+        [gridPath lineToPoint:NSMakePoint(locCenter+gridSize, x)];
+    }
+    [gridPath stroke];
 }
 
 
