@@ -76,6 +76,9 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             [xform translateXBy:viewBounds.size.height yBy:0.0];
             [xform scaleXBy:1.0 yBy:1.0];
             [xform concat];
+            
+            [[[NSColor blackColor] colorWithAlphaComponent:0.25] setFill];
+            [NSBezierPath fillRect:viewBounds];
             [[sgfPreview view] displayRectIgnoringOpacity:viewBounds inContext:context];
             
             NSRect bounds = NSMakeRect(0.0, 0.0, viewBounds.size.height-2.0, viewBounds.size.height-2.0);

@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.4.1
+    * fix preview in column view (white text wasn't visible)
+
 * 1.4
     * QuickLook Board Position Thumbnail Generator
 

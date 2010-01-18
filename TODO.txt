@@ -20,8 +20,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
-* fix preview in column view (white text isn't visible)
 * improve appearance of stones & board
-* parse file if metadata not available
+* parse file if metadata not available? (might be bad for icnv & coverflow perf)
 
 
