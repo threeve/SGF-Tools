@@ -20,7 +20,6 @@
 ~~~~~~~~~~~~~~~~~~~~~
 # quicklook generator
 
-* improve appearance of stones & board
 * parse file if metadata not available? (might be bad for icnv & coverflow perf)
 
 
