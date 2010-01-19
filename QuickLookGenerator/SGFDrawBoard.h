@@ -44,9 +44,12 @@
     
     // size of each intersection/location in graphic coords
     CGFloat locationWidth;
+    
+    BOOL flatStyle;
 }
 
 @property (assign, nonatomic) unsigned size;
+@property (assign, nonatomic) BOOL flatStyle;
 
 - (id) initWithBoardSize:(unsigned)newSize;
 

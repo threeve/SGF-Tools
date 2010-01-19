@@ -46,7 +46,9 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     CFRelease(attributeNames);
     CFRelease(metadata);
     
+    NSString *boardPosition = (NSString *) [attributes objectForKey:@"com_breedingpinetrees_sgf_boardposition"];
 	BOOL isCollection = [[attributes objectForKey:@"com_breedingpinetrees_sgf_iscollection"] boolValue];
+    
 	NSString *qlnib;
 	if (isCollection) {
 		qlnib = @"SGFCollectionPreview";
@@ -55,8 +57,6 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 		qlnib = @"SGFPreview";
 	}
     
-    NSString *boardPosition = (NSString *) [attributes objectForKey:@"com_breedingpinetrees_sgf_boardposition"];
-
     SGFPreviewViewController *sgfPreview = [[SGFPreviewViewController alloc] initWithNibName:qlnib bundle:[NSBundle bundleForClass:[SGFPreviewViewController class]]];
     [sgfPreview autorelease];
     [sgfPreview setRepresentedObject:attributes];
@@ -109,6 +109,8 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
             [board autorelease];
             [board setBounds:bounds];
+            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(QLPreviewRequestGetGeneratorBundle(preview), 
+                                                                                CFSTR("Board Style Flat")) boolValue];
             [board drawPosition:boardPosition];
 
             [NSGraphicsContext restoreGraphicsState];

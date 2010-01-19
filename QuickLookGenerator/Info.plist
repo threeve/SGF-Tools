@@ -79,5 +79,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>Board Style Flat</key>
+	<string>1</string>
 </dict>
 </plist>

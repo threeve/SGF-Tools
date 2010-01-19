@@ -91,6 +91,8 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
             SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
             [board autorelease];
             [board setBounds:bounds];
+            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(QLThumbnailRequestGetGeneratorBundle(thumbnail), 
+                                                                                CFSTR("Board Style Flat")) boolValue];
             [board drawPosition:boardPosition];
             
             [NSGraphicsContext restoreGraphicsState];

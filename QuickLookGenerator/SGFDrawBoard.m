@@ -40,6 +40,8 @@
 
 @implementation SGFDrawBoard
 
+@synthesize flatStyle;
+
 
 - (unsigned) size {
     return size;
@@ -102,8 +104,10 @@
     srect.size.width = locationWidth-0.5f;
     srect.size.height = srect.size.width;
     
-    [color setFill];
-    [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
+    if (flatStyle) {
+        [color setFill];
+        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
+    }
 }
 
 
