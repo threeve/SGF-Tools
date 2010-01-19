@@ -97,9 +97,9 @@
 
 - (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
     NSRect srect;
-    srect.origin.x = point.x+0.5f;
-    srect.origin.y = point.y+0.5f;
-    srect.size.width = locationWidth-1.0f;
+    srect.origin.x = point.x+0.25f;
+    srect.origin.y = point.y+0.25f;
+    srect.size.width = locationWidth-0.5f;
     srect.size.height = srect.size.width;
     
     [color setFill];
@@ -117,12 +117,11 @@
     if (size < 2) {
         return;
     }
-    
-    CGFloat locCenter = locationWidth / 2.0;
+        
+    // draw outer box
     NSPoint loc0 = [self getCenterPointForX:0 Y:0];
     NSPoint locMax = [self getCenterPointForX:size-1 Y:size-1];
     
-    // draw outer box
     [[NSColor blackColor] set];
     [NSBezierPath setDefaultLineWidth:1.0];
     [NSBezierPath strokeRect:NSMakeRect(loc0.x, loc0.y, locMax.x-loc0.x, locMax.y-loc0.y)];
@@ -130,6 +129,7 @@
     // draw inner lines
     NSBezierPath *gridPath = [NSBezierPath bezierPath];
     [[[NSColor blackColor] colorWithAlphaComponent:0.5] set];
+    
     NSPoint loc;
     for (unsigned x=1; x < size-1; x++) {
         loc = [self getCenterPointForX:x Y:0];
@@ -149,8 +149,9 @@
     for (unsigned x=0; x < size; x++) {
         for (unsigned y=0; y < size; y++) {
             if ([self isHoshiX:x Y:y]) {
-                hrect.origin.x = ((CGFloat)x * locationWidth) + locCenter - (HOSHI_WIDTH/2);
-                hrect.origin.y = ((CGFloat)y * locationWidth) + locCenter - (HOSHI_WIDTH/2);
+                loc = [self getCenterPointForX:x Y:y];
+                hrect.origin.x = loc.x - (HOSHI_WIDTH/2);
+                hrect.origin.y = loc.y - (HOSHI_WIDTH/2);
                 [[NSBezierPath bezierPathWithOvalInRect:hrect] fill]; 
             }
         }
