@@ -97,8 +97,9 @@
 
 - (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
     NSRect srect;
-    srect.origin = point;
-    srect.size.width = locationWidth;
+    srect.origin.x = point.x+0.5f;
+    srect.origin.y = point.y+0.5f;
+    srect.size.width = locationWidth-1.0f;
     srect.size.height = srect.size.width;
     
     [color setFill];
