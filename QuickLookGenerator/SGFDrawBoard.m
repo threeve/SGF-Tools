@@ -34,7 +34,7 @@
 #define HOSHI_WIDTH 3.0
 
 @interface SGFDrawBoard ()  // for private funcs
-- (BOOL) isHoshiX:(unsigned)x Y:(unsigned)y;
+- (void) drawHoshiAtX:(unsigned)x Y:(unsigned)y;
 @end
 
 
@@ -113,6 +113,13 @@
 }
 
 
+- (void) drawHoshiAtX:(unsigned)x Y:(unsigned)y {
+    NSPoint loc = [self getCenterPointForX:x Y:y];
+    [[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(loc.x - (HOSHI_WIDTH/2), loc.y - (HOSHI_WIDTH/2), 
+                                                       HOSHI_WIDTH, HOSHI_WIDTH)] fill]; 
+}
+
+
 - (void) drawGrid {
     if (size < 2) {
         return;
@@ -126,6 +133,7 @@
     [NSBezierPath setDefaultLineWidth:1.0];
     [NSBezierPath strokeRect:NSMakeRect(loc0.x, loc0.y, locMax.x-loc0.x, locMax.y-loc0.y)];
     
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // draw inner lines
     NSBezierPath *gridPath = [NSBezierPath bezierPath];
     [[[NSColor blackColor] colorWithAlphaComponent:0.5] set];
@@ -142,85 +150,56 @@
     
     [gridPath stroke];
     
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // draw hoshi
-    [[[NSColor blackColor] colorWithAlphaComponent:0.8] set];
-    NSRect hrect = NSMakeRect(0.0, 0.0, HOSHI_WIDTH, HOSHI_WIDTH);
-    
-    for (unsigned x=0; x < size; x++) {
-        for (unsigned y=0; y < size; y++) {
-            if ([self isHoshiX:x Y:y]) {
-                loc = [self getCenterPointForX:x Y:y];
-                hrect.origin.x = loc.x - (HOSHI_WIDTH/2);
-                hrect.origin.y = loc.y - (HOSHI_WIDTH/2);
-                [[NSBezierPath bezierPathWithOvalInRect:hrect] fill]; 
-            }
-        }
-    }
-}
-
-
-
-- (BOOL) isHoshiX:(unsigned)x Y:(unsigned)y {
     if ((size < 3) || (4 == size)) {
-        return FALSE;
+        return; // no hoshi points for these board sizes
     }
     
+    [[[NSColor blackColor] colorWithAlphaComponent:0.8] set];
+
     if (3 == size) {
-        if ((1 == x) && (1 == y)) {
-            return TRUE;
-        }
-        return FALSE;
+        [self drawHoshiAtX:1 Y:1];
+        return;
+    } else if (5 == size) {
+        [self drawHoshiAtX:1 Y:1];
+        [self drawHoshiAtX:1 Y:3];
+        [self drawHoshiAtX:2 Y:2];
+        [self drawHoshiAtX:3 Y:1];
+        [self drawHoshiAtX:3 Y:3];
+        return;
     }
-    
-    if (5 == size) {
-        if ((1 == x) && ((1 == y) || (3 == y))) {
-            return TRUE;
-        } else if ((2 == x) && (2 == y)) {
-            return TRUE;
-        } else if ((3 == x) && ((1 == y) || (3 == y))) {
-            return TRUE;
-        }
-        return FALSE;
-    }
-    
-    unsigned corner, middle = (size / 2);
+  
+    // all remaining sizes have corner hoshi
+    unsigned corner;
     if (size <= 11) {
         corner = 2;
     } else {
         corner = 3;
     }
-
-    // transform x & y to make comparison easier
-    if (x >= middle) {
-        x = size-x-1;
-    }
-    
-    if (y >= middle) {
-        y = size-y-1;
-    }
-    
-    if ((x == corner) && (y == corner)) {
-        return TRUE;
-    }
+    [self drawHoshiAtX:corner Y:corner];
+    [self drawHoshiAtX:size-1-corner Y:corner];
+    [self drawHoshiAtX:corner Y:size-1-corner];
+    [self drawHoshiAtX:size-1-corner Y:size-1-corner];
     
     // no center or side hoshi for even sizes
     if (size%2 == 0) {
-        return FALSE;
+        return;
     }
+    
+    // center hoshi
+    unsigned middle = (size / 2);
+    [self drawHoshiAtX:middle Y:middle];
     
     if (size < 12) {
-        if ((x == middle) && (y == middle)) {
-            return TRUE;
-        }
-        return FALSE;
+        return;  // so side hoshi for these sizes
     }
     
-    if (((x == corner) || (x == middle)) &&
-        ((y == corner) || (y == middle))) {
-        return TRUE;
-    }
-    
-    return FALSE;
+    // all remaining sizes have side hoshi
+    [self drawHoshiAtX:middle Y:corner];
+    [self drawHoshiAtX:middle Y:size-1-corner];
+    [self drawHoshiAtX:corner Y:middle];
+    [self drawHoshiAtX:size-1-corner Y:middle];
 }
 
 
