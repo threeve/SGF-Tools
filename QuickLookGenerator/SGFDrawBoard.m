@@ -106,11 +106,16 @@
     
     if (flatStyle) {
         [color setFill];
-        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
     } else {
         [color setFill];
-        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
+        NSShadow* theShadow = [[[NSShadow alloc] init] autorelease];
+        [theShadow setShadowOffset:NSMakeSize(2.0, -2.0)];
+        [theShadow setShadowBlurRadius:3.0];
+        [theShadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.4]];
+        [theShadow set];
     }
+    
+    [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
 }
 
 
