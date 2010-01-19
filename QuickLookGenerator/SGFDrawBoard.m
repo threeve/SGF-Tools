@@ -87,8 +87,9 @@
         [self drawStoneAtLocation:[blackStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor blackColor]];
     }
      
+    NSColor *wcolor = flatStyle ? [NSColor whiteColor] : DEFAULT_WHITE_NON_FLAT_STONE_NSCOLOR;
     for (unsigned loc=0; loc < [whiteStones length]; loc += 2) {
-        [self drawStoneAtLocation:[whiteStones substringWithRange:NSMakeRange(loc,2)] color:[NSColor whiteColor]];
+        [self drawStoneAtLocation:[whiteStones substringWithRange:NSMakeRange(loc,2)] color:wcolor];
     }
 }
 
@@ -99,23 +100,42 @@
 
 - (void) drawStoneAtPoint:(NSPoint)point color:(NSColor*)color {
     NSRect srect;
-    srect.origin.x = point.x+0.25f;
-    srect.origin.y = point.y+0.25f;
-    srect.size.width = locationWidth-0.5f;
+    srect.origin.x = point.x+0.25;
+    srect.origin.y = point.y+0.25;
+    srect.size.width = locationWidth-0.5;
     srect.size.height = srect.size.width;
     
     if (flatStyle) {
         [color setFill];
+        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
     } else {
-        [color setFill];
         NSShadow* theShadow = [[[NSShadow alloc] init] autorelease];
-        [theShadow setShadowOffset:NSMakeSize(2.0, -2.0)];
-        [theShadow setShadowBlurRadius:3.0];
+        if (locationWidth > 10.0) {
+            [theShadow setShadowOffset:NSMakeSize(2.0, -2.0)];
+            [theShadow setShadowBlurRadius:3.0];
+        } else {
+            [theShadow setShadowOffset:NSMakeSize(1.0, -1.0)];
+            [theShadow setShadowBlurRadius:1.0];
+        }
+
         [theShadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.4]];
         [theShadow set];
+        [color setFill];
+        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
+        [[theShadow init] set];
+
+        NSGradient* stoneGradient = [[[NSGradient alloc]
+                                  initWithStartingColor:[color blendedColorWithFraction:0.3 ofColor:[NSColor whiteColor]]
+                                  endingColor:[color blendedColorWithFraction:0.03 ofColor:[NSColor whiteColor]]] autorelease];
+        
+        CGFloat gradRadius = srect.size.width/2.5;
+        NSPoint centerPoint = NSMakePoint(NSMidX(srect) - (gradRadius/6.0), NSMidY(srect) - (gradRadius/6.0));
+        NSPoint highlightPoint = NSMakePoint(centerPoint.x - (gradRadius/4.5), centerPoint.y - (gradRadius/3.8));
+        [stoneGradient drawFromCenter:highlightPoint radius:0.0
+                             toCenter:centerPoint radius:gradRadius
+                              options:0];
     }
     
-    [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
 }
 
 

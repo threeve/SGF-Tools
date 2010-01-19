@@ -33,6 +33,7 @@
 
 
 #define DEFAULT_BOARD_NSCOLOR [NSColor colorWithDeviceRed:0.968 green:0.704 blue:0.382 alpha:1.000]
+#define DEFAULT_WHITE_NON_FLAT_STONE_NSCOLOR [NSColor colorWithDeviceRed:0.78 green:0.78 blue:0.78 alpha:1.000]
 
 
 @interface SGFDrawBoard : NSObject {
