@@ -3,7 +3,9 @@
 ## Version history
 
 * 1.4.1
-    * fix preview in column view (white text wasn't visible)
+    * fixed preview in column view (white text wasn't visible)
+    * improved collection Thumbnail appearance
+    * improved appearance of stones & board
 
 * 1.4
     * QuickLook Board Position Thumbnail Generator
