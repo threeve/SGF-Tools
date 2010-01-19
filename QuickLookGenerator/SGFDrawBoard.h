@@ -70,11 +70,14 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // location is a 2 letter string that describes an intersection on the board in sgf style
-// returns graphics coords for drawing
+// returns graphics coords for upper-left point of board location
 - (NSPoint) getPointForLocation:(NSString*)location;
 
 // here x & y are board intersection coords, not graphics coords
-// returns graphics coords for drawing
+// returns graphics coords for upper-left point of board intersection x,y
 - (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y;
 
+// returns graphics coords for center point of board intersection x,y
+- (NSPoint) getCenterPointForX:(unsigned)x Y:(unsigned)y;
+    
 @end

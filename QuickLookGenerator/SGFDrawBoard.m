@@ -118,30 +118,31 @@
     }
     
     CGFloat locCenter = locationWidth / 2.0;
-    CGFloat gridSize = locationWidth * (size - 1);
+    NSPoint loc0 = [self getCenterPointForX:0 Y:0];
+    NSPoint locMax = [self getCenterPointForX:size-1 Y:size-1];
     
     // draw outer box
-    NSColor *gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.8];
-    [gridColor set];
-    [NSBezierPath setDefaultLineWidth:0.6];
-    [NSBezierPath strokeRect:NSMakeRect(locCenter, locCenter, gridSize, gridSize)];
+    [[NSColor blackColor] set];
+    [NSBezierPath setDefaultLineWidth:1.0];
+    [NSBezierPath strokeRect:NSMakeRect(loc0.x, loc0.y, locMax.x-loc0.x, locMax.y-loc0.y)];
     
     // draw inner lines
     NSBezierPath *gridPath = [NSBezierPath bezierPath];
-    gridColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
-    [gridColor set];
-    
-    for (CGFloat x=locCenter+locationWidth; x < gridSize; x += locationWidth) {
-        [gridPath moveToPoint:NSMakePoint(x, locCenter)];
-        [gridPath lineToPoint:NSMakePoint(x, locCenter+gridSize)];
+    [[[NSColor blackColor] colorWithAlphaComponent:0.5] set];
+    NSPoint loc;
+    for (unsigned x=1; x < size-1; x++) {
+        loc = [self getCenterPointForX:x Y:0];
+        [gridPath moveToPoint:NSMakePoint(loc.x, loc0.y)];
+        [gridPath lineToPoint:NSMakePoint(loc.x, locMax.y)];
         
-        [gridPath moveToPoint:NSMakePoint(locCenter, x)];
-        [gridPath lineToPoint:NSMakePoint(locCenter+gridSize, x)];
+        [gridPath moveToPoint:NSMakePoint(loc0.x, loc.x)];
+        [gridPath lineToPoint:NSMakePoint(locMax.x, loc.x)];
     }
     
     [gridPath stroke];
     
     // draw hoshi
+    [[[NSColor blackColor] colorWithAlphaComponent:0.8] set];
     NSRect hrect = NSMakeRect(0.0, 0.0, HOSHI_WIDTH, HOSHI_WIDTH);
     
     for (unsigned x=0; x < size; x++) {
@@ -221,13 +222,18 @@
 }
 
 
-- (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y {
-    CGFloat fx, fy;
-    // FIX: need to properly scale & offset these!!!
-    fx = (CGFloat)x*locationWidth;
-    fy = (CGFloat)y*locationWidth;
+// returns graphics coords for center point of board intersection x,y
+- (NSPoint) getCenterPointForX:(unsigned)x Y:(unsigned)y {
+    CGFloat cx, cy;
+    cx = floor(((CGFloat)x*locationWidth)+(locationWidth/2)) + 0.5f;
+    cy = floor(((CGFloat)y*locationWidth)+(locationWidth/2)) + 0.5f;
     
-    return NSMakePoint(fx, fy);
+    return NSMakePoint(cx, cy);
+}
+
+// returns graphics coords for upper-left point of board intersection x,y
+- (NSPoint) getPointForX:(unsigned)x Y:(unsigned)y {
+    return NSMakePoint((CGFloat)x*locationWidth, (CGFloat)y*locationWidth);
 }
 
 - (NSPoint) getPointForLocation:(NSString*)location {
