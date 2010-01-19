@@ -90,8 +90,7 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
             [board autorelease];
             [board setBounds:bounds];
             board.cfBundle = QLThumbnailRequestGetGeneratorBundle(thumbnail);
-            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(QLThumbnailRequestGetGeneratorBundle(thumbnail), 
-                                                                                CFSTR("Board Style Flat")) boolValue];
+            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(board.cfBundle, CFSTR("Board Style Flat")) boolValue];
             [board drawPosition:boardPosition];
             
             [NSGraphicsContext restoreGraphicsState];

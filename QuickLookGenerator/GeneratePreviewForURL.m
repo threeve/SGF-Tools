@@ -108,8 +108,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             [board autorelease];
             [board setBounds:bounds];
             board.cfBundle = QLPreviewRequestGetGeneratorBundle(preview);
-            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(QLPreviewRequestGetGeneratorBundle(preview), 
-                                                                                CFSTR("Board Style Flat")) boolValue];
+            board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(board.cfBundle, CFSTR("Board Style Flat")) boolValue];
             [board drawPosition:boardPosition];
 
             [NSGraphicsContext restoreGraphicsState];
