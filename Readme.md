@@ -2,6 +2,9 @@
 
 ## Version history
 
+* 1.4.2
+    * very minor improvement of collection thumbnail appearance
+
 * 1.4.1
     * fixed preview in column view (white text wasn't visible)
     * improved collection Thumbnail appearance

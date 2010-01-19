@@ -80,7 +80,7 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
                 
                 // draw background that indicates file is a collection
                 for (unsigned i=0; i < numBoards; i++) {
-                    [[DEFAULT_BOARD_NSCOLOR colorWithAlphaComponent:0.25*i] setFill];
+                    [[DEFAULT_BOARD_NSCOLOR colorWithAlphaComponent:0.1*(i+1)] setFill];
                     [NSBezierPath fillRect:bounds];
                     bounds = NSOffsetRect(bounds, -collectionOffset, -collectionOffset);
                 }
