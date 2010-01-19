@@ -4,6 +4,8 @@
 
 * 1.4.2
     * very minor improvement of collection thumbnail appearance
+    * optimized shaded stone drawing
+    * enabled concurrent requests for QuickLook Generator
 
 * 1.4.1
     * fixed preview in column view (white text wasn't visible)
