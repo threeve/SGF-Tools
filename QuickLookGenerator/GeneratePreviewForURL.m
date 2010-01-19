@@ -107,6 +107,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             SGFDrawBoard *board = [[SGFDrawBoard alloc] initWithBoardSize:DEFAULT_BOARD_SIZE];
             [board autorelease];
             [board setBounds:bounds];
+            board.cfBundle = QLPreviewRequestGetGeneratorBundle(preview);
             board.flatStyle = [(NSNumber*) CFBundleGetValueForInfoDictionaryKey(QLPreviewRequestGetGeneratorBundle(preview), 
                                                                                 CFSTR("Board Style Flat")) boolValue];
             [board drawPosition:boardPosition];

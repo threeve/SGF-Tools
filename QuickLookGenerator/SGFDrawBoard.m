@@ -40,7 +40,7 @@
 
 @implementation SGFDrawBoard
 
-@synthesize flatStyle;
+@synthesize flatStyle, cfBundle;
 
 
 - (unsigned) size {
@@ -107,13 +107,23 @@
     if (flatStyle) {
         [color setFill];
         [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
+    } else {
+        [color setFill];
+        [[NSBezierPath bezierPathWithOvalInRect:srect] fill];
     }
 }
 
 
 - (void) drawBoardColor:(NSColor*)color {
-    [color setFill];
-    [NSBezierPath fillRect:NSMakeRect(0.0, 0.0, BOARD_WIDTH, BOARD_WIDTH)];
+    if (flatStyle) {
+        [color setFill];
+        [NSBezierPath fillRect:NSMakeRect(0.0, 0.0, BOARD_WIDTH, BOARD_WIDTH)];
+    } else {
+        NSURL *imageUrl = [(NSURL *) CFBundleCopyResourceURL(cfBundle, CFSTR("boardFill.png"), NULL, NULL) autorelease];
+        NSImage* img = [[[NSImage alloc] initWithContentsOfURL:imageUrl] autorelease];
+        [[NSColor colorWithPatternImage:img] setFill];
+        [NSBezierPath fillRect:NSMakeRect(0.0, 0.0, BOARD_WIDTH, BOARD_WIDTH)];
+    }
 }
 
 

@@ -46,10 +46,12 @@
     CGFloat locationWidth;
     
     BOOL flatStyle;
+    CFBundleRef cfBundle;
 }
 
 @property (assign, nonatomic) unsigned size;
 @property (assign, nonatomic) BOOL flatStyle;
+@property (assign, nonatomic) CFBundleRef cfBundle;
 
 - (id) initWithBoardSize:(unsigned)newSize;
 

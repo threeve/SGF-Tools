@@ -27,6 +27,7 @@
 		520F868510E1766000E6C4BB /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
 		52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868110E1766000E6C4BB /* AUTHORS.txt */; };
 		52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 520F868210E1766000E6C4BB /* LICENSE.txt */; };
+		5260BFAA110621080039CD6F /* boardFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 5260BFA9110621080039CD6F /* boardFill.png */; };
 		529B259A1100CCF100C1ABB9 /* SGFDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */; };
 		529B25CF1100F9E400C1ABB9 /* SGFGoban.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E0B79B10FC9A11001D4962 /* SGFGoban.m */; };
 		52D8BD0D10DF1CDF0026CAF5 /* schema.xml in Resources */ = {isa = PBXBuildFile; fileRef = C88FB7D7067446EC006EBB30 /* schema.xml */; };
@@ -124,6 +125,7 @@
 		2C05A19B06CAA52B00D84F6F /* GetMetadataForFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
 		520F868110E1766000E6C4BB /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS.txt; sourceTree = "<group>"; };
 		520F868210E1766000E6C4BB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5260BFA9110621080039CD6F /* boardFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boardFill.png; sourceTree = "<group>"; };
 		52993D3E10F8750300914AC9 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = QuickLookGenerator/German.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52993D3F10F8750800914AC9 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = QuickLookGenerator/Japanese.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
 		52993D4010F8751000914AC9 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_CN; path = QuickLookGenerator/zh_CN.lproj/SGFCollectionPreview.xib; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		968B493F10F05CC4005DC450 /* QuickLookGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				5260BFA9110621080039CD6F /* boardFill.png */,
 				529B25981100CCF100C1ABB9 /* SGFDrawBoard.h */,
 				529B25991100CCF100C1ABB9 /* SGFDrawBoard.m */,
 				968B494010F05CEF005DC450 /* GeneratePreviewForURL.m */,
@@ -481,6 +484,7 @@
 				52E41E5810F79D1A0035FD79 /* SGFCollectionPreview.xib in Resources */,
 				52538A3B10F7ABE500F91876 /* AUTHORS.txt in Resources */,
 				52538A3C10F7ABED00F91876 /* LICENSE.txt in Resources */,
+				5260BFAA110621080039CD6F /* boardFill.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
